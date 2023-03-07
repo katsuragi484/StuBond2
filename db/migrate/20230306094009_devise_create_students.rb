@@ -33,7 +33,17 @@ class DeviseCreateStudents < ActiveRecord::Migration[6.1]
       # t.datetime :locked_at
 
       # ログイン用コード
-      t.string :code
+      t.string :code, null: false
+
+      # その他必要なカラム
+      t.integer :parent_id
+      t.string :last_name, null: false
+      t.string :first_name, null: false
+      t.string :last_name_kana, null: false
+      t.string :first_name_kana, null: false
+      t.string :phone_number
+      t.string :school
+      t.boolean :is_deleted, null:false, default: true
 
 
       t.timestamps null: false

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   namespace :parents do
     root to: "homes#top"
   end
-  
+
   # 生徒用
   devise_for :students, controllers: {
     registrations: "student/registrations",

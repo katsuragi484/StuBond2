@@ -33,7 +33,9 @@ class DeviseCreateParents < ActiveRecord::Migration[6.1]
       # t.datetime :locked_at
 
       # ログイン用コード
-      t.string :code
+      t.string :code, null: false
+
+
 
 
       t.timestamps null: false

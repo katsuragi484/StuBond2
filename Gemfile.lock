@@ -94,6 +94,7 @@ GEM
       activesupport (>= 3.0.0)
     erubi (1.12.0)
     ffi (1.15.5)
+    ffi (1.15.5-x64-mingw-ucrt)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -290,7 +291,7 @@ DEPENDENCIES
   webpacker (~> 5.0)
 
 RUBY VERSION
-   ruby 3.2.1p31
+   ruby 3.1.2p20
 
 BUNDLED WITH
    2.3.22

@@ -33,8 +33,15 @@ class DeviseCreateTeachers < ActiveRecord::Migration[6.1]
       # t.datetime :locked_at
 
       # ログイン用コード
-      t.string :code
+      t.string :code, null: false
 
+      # その他必要なカラム
+      t.string :last_name, null: false
+      t.string :first_name, null: false
+      t.string :last_name_kana, null: false
+      t.string :first_name_kana, null: false
+      t.string :phone_number
+      t.string :word
 
       t.timestamps null: false
     end
