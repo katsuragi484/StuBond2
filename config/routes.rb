@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     registrations: "teacher/registrations",
     sessions: "teacher/sessions"
   }
-  namesoace :teachers do
+  namespace :teachers do
     root:to "homes#top"
   end
 
