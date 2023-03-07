@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     sessions: "parent/sessions"
   }
   namespace :parents do
-    root:to "homes#top"
+    root to: "homes#top"
   end
   
   # 生徒用
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     sessions: "student/sessions"
   }
   namespace :students do
-    root:to "homes#top"
+    root to: "homes#top"
   end
 
   # 講師用
@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     sessions: "teacher/sessions"
   }
   namespace :teachers do
-    root:to "homes#top"
+    root to: "homes#top"
   end
 
   # 管理者用
