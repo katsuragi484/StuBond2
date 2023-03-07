@@ -28,10 +28,10 @@
 - 講師と生徒、保護者で連絡を取るとき
 
 ## 設計書
-- [画面遷移図_未完成](https://app.diagrams.net/#G1DCmP_cWGB9znYhcJF-uxomAriUAZmufK)
+- [画面遷移図](https://app.diagrams.net/#G1DCmP_cWGB9znYhcJF-uxomAriUAZmufK)
 - [ワイヤーフレーム](https://app.diagrams.net/#G1fi-_cp-2OW_oz866o7-G5CFRokYpQcLF)
-- [ER図_未完成]()
-- [テーブル定義書_未完成]()
+- [ER図](https://app.diagrams.net/#G1UmkGpX9zjYPoBgYKQbHU_bpGhXu9EpZ0)
+- [テーブル定義書](https://docs.google.com/spreadsheets/d/1X3GpDv4ZZEPWZbAMMQzGgbY04azczooHEUGGC-bBuSw/edit#gid=1373217982)
 - [詳細設計_未完成]()
 
 ## 開発環境
