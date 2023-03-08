@@ -6,8 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require "securerandom"
 # Admin User Dataを作成
-adminUser1 = Admin.create!(
+Admin.create!(
+    email: SecureRandom.alphanumeric+"@example.com",
     code: 'testcode',
-    password: 'password',
+    password: 'password'
 )
