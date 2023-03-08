@@ -6,6 +6,16 @@ Rails.application.routes.draw do
   }
   namespace :parents do
     root to: "homes#top"
+    resource :parents, only: [] do
+      get "my_page" => "parents#show"
+      get "information/edit" => "parents#edit"
+      patch "information" => "parents#update"
+      get "unsubscribe" => "parents#unsubscribe"
+      patch "withdraw" => "parents#withdraw"
+    end
+    resources :students, only: [:index, :show, :edit, :update]
+    resources :homeworks, only: [:index, :create, :update]
+    resources :reports, only: [:index, :create, :show, :edit, :update]
   end
 
   # 生徒用
@@ -15,6 +25,17 @@ Rails.application.routes.draw do
   }
   namespace :students do
     root to: "homes#top"
+    resource :students, only: [] do
+      get "my_page" => "students#show"
+      get "information/edit" => "students#edit"
+      patch "information" => "students#update"
+      get "unsubscribe" => "students#unsubscribe"
+      patch "withdraw" => "students#withdraw"
+    end
+    resources :chats, only: [:create]
+    resources :chatrooms, only: [:index, :show]
+    resources :homeworks, only: [:index, :update]
+    resources :reports, only: [:index, :show]
   end
 
   # 講師用
@@ -24,6 +45,17 @@ Rails.application.routes.draw do
   }
   namespace :teachers do
     root to: "homes#top"
+    resource :teacher, only: [] do
+      get "my_page" => "teachers#show"
+      get "information/edit" => "teachers#edit"
+      patch "information" => "teachers#update"
+      get "unsubscribe" => "teachers#unsubscribe"
+      patch "withdraw" => "teachers#withdraw"
+    end
+    resources :chats, only: [:create]
+    resources :chatrooms, only: [:index, :show]
+    resources :students, only: [:index, :show, :edit, :update]
+    resources :homeworks, only: [:index, :create, :edit, :update]
   end
 
   # 管理者用
