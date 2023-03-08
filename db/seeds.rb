@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Admin User Dataを作成
+adminUser1 = Admin.create!(
+    code: 'testcode',
+    password: 'password',
+)

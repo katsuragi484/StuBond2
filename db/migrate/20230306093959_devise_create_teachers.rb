@@ -42,6 +42,7 @@ class DeviseCreateTeachers < ActiveRecord::Migration[6.1]
       t.string :first_name_kana, null: false
       t.string :phone_number
       t.string :word
+      t.boolean :is_deleted, null:false, default: true
 
       t.timestamps null: false
     end
