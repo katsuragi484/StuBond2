@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     new_admin_registration_path
   end
+  def after_sign_in_path_for(resource)
+    new_admin_registration_path
+  end
 
   protected
 
