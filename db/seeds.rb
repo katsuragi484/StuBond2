@@ -11,5 +11,6 @@ require "securerandom"
 Admin.create!(
     email: SecureRandom.alphanumeric+"@example.com",
     code: 'testcode',
-    password: 'password'
+    password: 'password',
+    password_confirmation: 'password'
 )

@@ -5,7 +5,7 @@ class Student < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :chats, dependent: :destroy
   has_one :chatroom
-  belongs_to :parent
+  belongs_to :parent, optional: true
   has_many :reports, dependent: :destroy
 
 end
