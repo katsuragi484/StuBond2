@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="form-group row">
+    <div class="col">
+      <h3 class="mt-2">教科一覧・追加</h3>
+    </div>
+  </div>
+  <div class="card" style="width: 30rem;">
+    <div class="card-body">
+      <%= form_with model: @subject, url: admin_subjects_path do |f| %>
+        <%= f.label :教科名 %>&emsp;
+        <%= f.text_field :subject_name %>&emsp;
+        <%= f.submit "新規登録", class: "btn btn-outline-primary"%>
+      <% end %>
+    </div>
+  </div>
+  <table class="table mt-4" style="width: 40%">
+    <thead class="thead-lignt bg-light">
+      <tr>
+        <th>教科</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @subjects.each do |subject| %>
+        <tr>
+          <td><%= subject.subject_name %></td>
+          <td><%= link_to '編集する', edit_admin_subject_path(subject.id), class: "btn btn-outline-success" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
