@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="form-group row">
+    <div class="col">
+      <h3 class="mt-2">授業報告詳細</h3>
+    </div>
+  </div>
+
+  <%= form_with model: @report do |f| %>
+    <div class="form-group row">
+      <label class="col-3 mb-0 pr-0">教科</label>
+      <div class="col-9">
+          <%#= f.collection_select(:subject, @subjects, :id, :subject_name, {prompt: "選択してください"} ) %>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label class="col-3 mb-0 pr-0">題名</label>
+      <div class="col-9">
+          <%= f.text_field :title, autofocus: true, placeholder:"〇章..." %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label class="col-3 mb-0 pr-0">詳細</label>
+      <div class="col-9">
+          <%= f.text_area :body, placeholder:"今回の授業では..." %>
+      </div>
+    </div>
+  <% end %>
+</div>
