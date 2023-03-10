@@ -16,10 +16,7 @@
               <td><%= @report.body %></td>
             </tr>
             <tr>
-              <th class="thead-lignt bg-light">
-                保護者より
-                <%= link_to '編集する', edit_parent_report_path(@report.id), class: "btn btn-outline-success" %>
-                </th>
+              <th class="thead-lignt bg-light">保護者より</th>
               <td><%= @report.comment %></td>
             </tr>
           </table>
