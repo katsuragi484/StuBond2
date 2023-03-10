@@ -26,11 +26,20 @@ class Teacher::ReportsController < ApplicationController
   end
 
   def edit
-
+    @report = Report.find(params[:id])
+    @students = Student.all
+    @subjects = Subject.all
   end
 
   def update
-
+    @report = Report.find(params[:id])
+    if @report.update(report_params)
+      redirect_to teacher_reports_path
+    else
+      @students = Student.all
+      @subjects = Subject.all
+      render 'edit'
+    end
   end
 
 
