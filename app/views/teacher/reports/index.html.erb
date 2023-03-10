@@ -10,7 +10,7 @@
         <th>日付</th>
         <th>題名</th>
         <th>教科</th>
-        <th>講師</th>
+        <th>生徒名</th>
         <th>報告書詳細</th>
         <th>宿題</th>
       </tr>
@@ -21,7 +21,7 @@
           <td><%= l report.created_at, format: :short %></td>
           <td><%= report.title %></td>
           <td><%= report.subject.subject_name %></td>
-          <td><%= report.teacher.last_name %></td>
+          <td><%= report.student.last_name %>さん</td>
           <td><%= link_to '表示する', teacher_report_path(report.id), class: "btn btn-outline-success" %></td>
           <td><%= link_to '表示する', teacher_report_path(report.id), class: "btn btn-outline-success" %></td>
         </tr>
