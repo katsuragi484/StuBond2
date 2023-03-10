@@ -35,17 +35,16 @@
     </div>
 
     <!--宿題作成-->
-          <div class="form-group row">
-        <label class="col-3 mb-0 pr-0">宿題</label>
-        <div class="col-9">
-    <%= f.fields_for :homeworks do |t| %>
-
+    <div class="form-group row">
+      <label class="col-3 mb-0 pr-0">宿題</label>
+      <div class="col-9">
+        <%= f.fields_for :homeworks do |t| %>
           <%= t.date_field :deadline %>
           <%= t.text_field :task %>
-
-    <% end %>
-</div>
+          <br>
+        <% end %>
       </div>
+    </div>
 
     <div class="actions">
       <%= f.submit "報告詳細作成" %>

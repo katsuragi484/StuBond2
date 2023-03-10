@@ -11,7 +11,7 @@ class Teacher::ReportsController < ApplicationController
 
   def create
     report = Report.new(report_params)
-    if report.save!
+    if report.save
       redirect_to teacher_reports_path
     else
     @report = Report.new
@@ -27,6 +27,7 @@ class Teacher::ReportsController < ApplicationController
 
   def show
     @report = Report.find(params[:id])
+    @homeworks = Homework.where(report_id: @report.id)
   end
 
   def edit
@@ -50,6 +51,6 @@ class Teacher::ReportsController < ApplicationController
   private
   def report_params
     # _destroyは、Homeworkモデルのフォームが空のときに空データが送信されないために追加
-    params.require(:report).permit(:student_id, :teacher_id, :body, :title, :subject_id, homeworks_attributes: [:id, :task, :deadline, :_destroy])
+    params.require(:report).permit(:student_id, :teacher_id, :body, :title, :subject_id, homeworks_attributes: [:id, :task, :deadline, :_destroy, :_blank])
   end
 end
