@@ -3,7 +3,7 @@ class Teacher::ReportsController < ApplicationController
     @report = Report.new
 
     # build_method:親モデルに属する子モデルのインスタンスを新たに生成したい場合に使うメソッド。
-    @report.homeworks.build
+    6.times {@report.homeworks.build}
 
     @students = Student.all
     @subjects = Subject.all
@@ -49,6 +49,7 @@ class Teacher::ReportsController < ApplicationController
 
   private
   def report_params
-    params.require(:report).permit(:student_id, :teacher_id, :body, :title, :subject_id, homeworks_attributes: [:id, :task, :deadline])
+    # _destroyは、Homeworkモデルのフォームが空のときに空データが送信されないために追加
+    params.require(:report).permit(:student_id, :teacher_id, :body, :title, :subject_id, homeworks_attributes: [:id, :task, :deadline, :_destroy])
   end
 end
