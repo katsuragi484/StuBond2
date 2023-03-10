@@ -21,6 +21,10 @@ class Teacher::ReportsController < ApplicationController
     @reports = Report.all
   end
 
+  def show
+    @report = Report.find(params[:id])
+  end
+
   def edit
 
   end

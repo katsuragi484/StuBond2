@@ -1,1 +1,52 @@
-aa
+<div class="container">
+  <div class="form-group row">
+    <div class="col">
+      <h3 class="mt-2">授業報告詳細</h3>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col-8">
+      <table class="table mt-4" style="width: 95%">
+          <tr>
+            <th class="thead-lignt bg-light" style="width: 25%">題名</th>
+            <td><%= @report.title %></td>
+          </tr>
+          <tr>
+            <th class="thead-lignt bg-light">報告書詳細</th>
+            <td><%= @report.body %></td>
+          </tr>
+          <tr>
+            <th class="thead-lignt bg-light">保護者より</th>
+            <td><%= @report.comment %></td>
+          </tr>
+        </table>
+      </div>
+
+    <div class="col-4">
+      <table class="table mt-4" style="width: 95%">
+          <tr>
+            <th class="thead-lignt bg-light" style="width: 35%">日付</th>
+            <td><%= l @report.created_at, format: :v_short %></td>
+          </tr>
+          <tr>
+            <th class="thead-lignt bg-light">教科</th>
+            <td><%= @report.subject.subject_name %></td>
+          </tr>
+          <tr>
+            <th class="thead-lignt bg-light">担当講師</th>
+            <td><%= @report.teacher.last_name %></td>
+            </tr>
+      </table>
+
+      <!--宿題についてのテーブル-->
+      <table class="table mt-4" style="width: 95%">
+          <tr>
+            <th style="width: 35%"></th>
+            <td></td>
+          </tr>
+      </table>
+    </div>
+
+
+  </div>
+</div>
