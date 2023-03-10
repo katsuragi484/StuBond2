@@ -52,7 +52,7 @@ Rails.application.routes.draw do
       get "unsubscribe" => "teachers#unsubscribe"
       patch "withdraw" => "teachers#withdraw"
     end
-    resources :reports, except: [:delete]
+    resources :reports, only: [:new, :create, :index, :show, :edit, :update]
     resources :chats, only: [:create]
     resources :chatrooms, only: [:index, :show]
     resources :students, only: [:index, :show, :edit, :update]

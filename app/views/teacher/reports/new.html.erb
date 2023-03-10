@@ -5,7 +5,7 @@
     </div>
   </div>
 
-  <%= form_with model: @report do |f| %>
+<%= form_with model: @report, url: teacher_reports_path do |f| %>
     <div class="form-group row">
       <label class="col-3 mb-0 pr-0">教科</label>
       <div class="col-9">
@@ -24,6 +24,9 @@
       <div class="col-9">
           <%= f.text_area :body, placeholder:"今回の授業では..." %>
       </div>
+    </div>
+    <div class="actions">
+      <%= f.submit "報告詳細作成" %>
     </div>
   <% end %>
 </div>

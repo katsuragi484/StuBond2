@@ -5,6 +5,12 @@ class Student::ReportsController < ApplicationController
     @subjects = Subject.all
   end
 
+  def create
+    report = Report.new(report_params)
+    report.save
+    redirect_to 'teacher_report_path(report.id)'
+  end
+
   def index
 
   end
@@ -19,5 +25,11 @@ class Student::ReportsController < ApplicationController
 
   def update
 
+  end
+
+  private
+
+  def report_params
+    params.require(:report).permit(:title, :body, :subject_id)
   end
 end
