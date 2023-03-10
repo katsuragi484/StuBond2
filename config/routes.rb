@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   # 保護者用
-  devise_for :parents, controllers: {
+  devise_for :parent, controllers: {
     registrations: "parent/registrations",
     sessions: "parent/sessions"
   }
-  namespace :parents do
+  namespace :parent do
     root to: "homes#top"
     resource :parents, only: [] do
       get "my_page" => "parents#show"
@@ -19,11 +19,11 @@ Rails.application.routes.draw do
   end
 
   # 生徒用
-  devise_for :students, controllers: {
+  devise_for :student, controllers: {
     registrations: "student/registrations",
     sessions: "student/sessions"
   }
-  namespace :students do
+  namespace :student do
     root to: "homes#top"
     resource :students, only: [] do
       get "my_page" => "students#show"
@@ -39,19 +39,20 @@ Rails.application.routes.draw do
   end
 
   # 講師用
-  devise_for :teachers, controllers: {
+  devise_for :teacher, controllers: {
     registrations: "teacher/registrations",
     sessions: "teacher/sessions"
   }
-  namespace :teachers do
+  namespace :teacher do
     root to: "homes#top"
-    resource :teacher, only: [] do
+    resource :teachers, only: [] do
       get "my_page" => "teachers#show"
       get "information/edit" => "teachers#edit"
       patch "information" => "teachers#update"
       get "unsubscribe" => "teachers#unsubscribe"
       patch "withdraw" => "teachers#withdraw"
     end
+    resources :reports, except: [:delete]
     resources :chats, only: [:create]
     resources :chatrooms, only: [:index, :show]
     resources :students, only: [:index, :show, :edit, :update]
