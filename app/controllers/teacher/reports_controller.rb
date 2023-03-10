@@ -7,7 +7,7 @@ class Teacher::ReportsController < ApplicationController
 
   def create
     report = Report.new(report_params)
-    if report.save!
+    if report.save
     redirect_to teacher_reports_path
     else
     end
@@ -16,6 +16,6 @@ class Teacher::ReportsController < ApplicationController
 
   private
   def report_params
-    params.require(:report).permit(:body, :title, :subject)
+    params.require(:report).permit(:student_id, :teacher_id, :body, :title, :subject_id)
   end
 end
