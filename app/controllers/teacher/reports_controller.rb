@@ -8,9 +8,25 @@ class Teacher::ReportsController < ApplicationController
   def create
     report = Report.new(report_params)
     if report.save
-    redirect_to teacher_reports_path
+      redirect_to teacher_reports_path
     else
+    @report = Report.new
+    @students = Student.all
+    @subjects = Subject.all
+      render 'new'
     end
+  end
+
+  def index
+    @reports = Report.all
+  end
+
+  def edit
+
+  end
+
+  def update
+
   end
 
 
