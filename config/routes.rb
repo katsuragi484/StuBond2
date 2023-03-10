@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     end
     resources :students, only: [:index, :show, :edit, :update]
     resources :homeworks, only: [:index, :create, :update]
-    resources :reports, only: [:index, :create, :show, :edit, :update]
+    resources :reports, only: [:index, :show, :edit, :update]
   end
 
   # 生徒用

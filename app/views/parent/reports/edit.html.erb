@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="form-group row">
+    <div class="col">
+      <h3 class="mt-2">保護者コメント修正</h3>
+    </div>
+  </div>
+
+<%= form_with model: @report, url: parent_report_path(@report.id) do |f| %>
+    <div class="form-group row">
+      <label class="col-3 mb-0 pr-0">保護者コメント</label>
+      <div class="col-9">
+          <%= f.text_area :comment, placeholder:"○○について..." %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit "修正完了" %>
+    </div>
+
+  <% end %>
+</div>
