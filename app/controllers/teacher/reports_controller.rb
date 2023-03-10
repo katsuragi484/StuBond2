@@ -1,13 +1,16 @@
 class Teacher::ReportsController < ApplicationController
   def new
     @report = Report.new
-    @subject = Subject.all
+    @students = Student.all
+    @subjects = Subject.all
   end
 
   def create
     report = Report.new(report_params)
-    report.save
+    if report.save!
     redirect_to teacher_reports_path
+    else
+    end
   end
 
 
