@@ -5,6 +5,7 @@ class Report < ApplicationRecord
   belongs_to :subject
 
 # コントローラにてパラメータ指定をする際にhomeworkのカラムを指定可能とする
-  accepts_nested_attributes_for :homeworks
+# reject_ifは、子モデルが空である場合、そのモデルを無視する
+  accepts_nested_attributes_for :homeworks, reject_if: :all_blank
 
 end
