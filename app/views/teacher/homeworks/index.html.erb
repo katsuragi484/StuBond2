@@ -1,0 +1,17 @@
+  <table class="table">
+    <thead class="thead-lignt bg-light">
+      <tr>
+        <th>会員ID</th>
+        <th>氏名</th>
+
+      </tr>
+    </thead>
+    <tbody>
+        <% @students.each do |student| %>
+        <tr>
+          <td><%= student.id %></td>
+          <td><%= link_to student.last_name + student.first_name, teacher_homework_path(student.id) %></td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>

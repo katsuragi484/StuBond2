@@ -34,6 +34,8 @@ class Teacher::ReportsController < ApplicationController
     @report = Report.find(params[:id])
     @students = Student.all
     @subjects = Subject.all
+    @report.homeworks.build
+
   end
 
   def update

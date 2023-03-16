@@ -56,7 +56,7 @@ Rails.application.routes.draw do
     resources :chats, only: [:create]
     resources :chatrooms, only: [:index, :show]
     resources :students, only: [:index, :show, :edit, :update]
-    resources :homeworks, only: [:index, :create, :edit, :update]
+    resources :homeworks, only: [:index, :show]
   end
 
   # 管理者用
