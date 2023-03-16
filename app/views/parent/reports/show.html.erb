@@ -43,12 +43,23 @@
 
         <!--宿題についてのテーブル-->
         <table class="table mt-4" style="width: 95%">
+          <thead class="thead-lignt bg-light">
             <tr>
-              <th style="width: 35%"></th>
-              <td></td>
+              <th>日付</th>
+              <th>宿題内容</th>
             </tr>
+          </thead>
+          <tbody>
+            <% @homeworks.each do |homework| %>
+              <tr>
+                <td><%= homework.deadline %></td>
+                <td><%= homework.task %></td>
+              </tr>
+            <% end %>
+          </tbody>
         </table>
       </div>
+
 
 
 

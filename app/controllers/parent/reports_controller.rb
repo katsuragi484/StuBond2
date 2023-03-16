@@ -1,16 +1,18 @@
 class Parent::ReportsController < ApplicationController
 
   def index
-    @reports = Report.all
+    students = Student.where(parent_id: current_parent.id)
+    @reports = Report.where(student_id: students.ids)
   end
 
   def show
     @report = Report.find(params[:id])
+    @homeworks = Homework.where(report_id: @report.id)
   end
 
   def edit
     @report = Report.find(params[:id])
-
+    @homeworks = Homework.where(report_id: @report.id)
   end
 
   def update

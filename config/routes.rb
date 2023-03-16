@@ -14,7 +14,7 @@ Rails.application.routes.draw do
       patch "withdraw" => "parents#withdraw"
     end
     resources :students, only: [:index, :show, :edit, :update]
-    resources :homeworks, only: [:index, :create, :update]
+    resources :homeworks, only: [:index, :create, :update, :show]
     resources :reports, only: [:index, :show, :edit, :update]
   end
 
