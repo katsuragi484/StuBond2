@@ -18,7 +18,18 @@ class Admin::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
+   protected
+
+ # The path used after sign in.
+  def after_sign_in_path_for(resource)
+    admin_reports_path
+  end
+
+  # The path used after sign out.
+  def after_sign_out_path_for(resource)
+    new_admin_session_path
+  end
+
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params

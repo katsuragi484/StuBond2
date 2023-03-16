@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Parent::SessionsController < Devise::SessionsController
-  # before_action :configure_sign_in_params, only: [:create]
+   before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -18,7 +18,17 @@ class Parent::SessionsController < Devise::SessionsController
   #   super
   # end
 
-  # protected
+   protected
+
+   # The path used after sign in.
+  def after_sign_in_path_for(resource)
+    my_page_parent_parents_path
+  end
+
+  # The path used after sign out.
+  def after_sign_out_path_for(resource)
+    new_parent_session_path
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_in_params

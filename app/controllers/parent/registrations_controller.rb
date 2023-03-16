@@ -38,7 +38,12 @@ class Parent::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+   protected
+
+  # The path used after sign up.
+   def after_sign_up_path_for(resource)
+     my_page_parent_parents_path
+   end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
