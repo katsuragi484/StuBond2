@@ -34,7 +34,7 @@ Rails.application.routes.draw do
     end
     resources :chats, only: [:create]
     resources :chatrooms, only: [:index, :show]
-    resources :homeworks, only: [:index, :update]
+    resources :homeworks, only: [:show, :update]
     resources :reports, only: [:index, :show]
   end
 
