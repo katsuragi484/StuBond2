@@ -8,7 +8,7 @@
         <div class="d-flex p-2 bd-highlight">
             <strong>登録情報</strong>
             <div class="col">
-            <%= link_to "編集する", information_student_students_path, class: 'btn btn-outline-success' %>
+            <%= link_to "編集する", information_edit_student_students_path, class: 'btn btn-outline-success' %>
             </div>
         </div>
     </div>
@@ -19,7 +19,7 @@
               <tr>
                 <td bgcolor= "#F2F2F2", scope="col" style="width: 20%">氏名</td>
                 <td>
-                    <%= @student.last_name + @customer.first_name %>
+                    <%= @student.last_name + @student.first_name %>
                 </td>
               </tr>
               <tr>
@@ -33,7 +33,7 @@
 
               <tr>
                 <td bgcolor= "#F2F2F2", scope="col" style="width: 20%">電話番号</td>
-                <td><%= @student.telephone_number %></td>
+                <td><%= @student.phone_number %></td>
               </tr>
               <tr>
                 <td bgcolor= "#F2F2F2", scope="col" style="width: 30%">メールアドレス</td>
