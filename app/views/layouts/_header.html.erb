@@ -25,11 +25,11 @@
 
       <!--保護者側ログイン-->
       <% elsif parent_signed_in? %>
-      <span class="navbar-brand mb-0 h1">ようこそ、<%= current_parent.student.last_name %> さん!</span> <!--まだ名前のリンク入れてないよ。-->
+      <span class="navbar-brand mb-0 h1">ようこそ、<%= current_parent.students.first.last_name %> さん!</span> <!--まだ名前のリンク入れてないよ。-->
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <li class="mr-2">
-            <%= link_to my_page_parents_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+            <%= link_to my_page_parent_parents_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
               マイページ
             <% end %>
           </li>
