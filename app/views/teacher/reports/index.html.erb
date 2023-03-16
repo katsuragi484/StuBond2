@@ -23,7 +23,7 @@
           <td><%= report.subject.subject_name %></td>
           <td><%= report.student.last_name %>さん</td>
           <td><%= link_to '表示する', teacher_report_path(report.id), class: "btn btn-outline-success" %></td>
-          <td><%= link_to '表示する', teacher_homework_path(report.id), class: "btn btn-outline-success" %></td>
+          <td><%= link_to '表示する', teacher_homework_path(report.student_id), class: "btn btn-outline-success" %></td>
         </tr>
       <% end %>
     </tbody>

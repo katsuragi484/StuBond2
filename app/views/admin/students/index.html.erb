@@ -1,7 +1,7 @@
 <div class="container">
   <div class="form-group row">
     <div class="col">
-      <h3 class="mt-2">生徒選択</h3>
+      <h3 class="mt-2">生徒一覧</h3>
     </div>
   </div>
   <table class="table">
@@ -16,7 +16,7 @@
         <% @students.each do |student| %>
         <tr>
           <td><%= student.id %></td>
-          <td><%= link_to student.last_name + student.first_name, teacher_homework_path(student.id) %></td>
+          <td><%= link_to student.last_name + student.first_name, admin_student_path(student.id) %></td>
         </tr>
         <% end %>
     </tbody>

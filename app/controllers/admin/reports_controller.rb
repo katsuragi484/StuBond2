@@ -1,11 +1,12 @@
 class Admin::ReportsController < ApplicationController
 
-   def index
+  def index
     @reports = Report.all
   end
 
   def show
     @report = Report.find(params[:id])
+    @homeworks = Homework.where(report_id: @report.id)
   end
 
 end
