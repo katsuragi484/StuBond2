@@ -20,7 +20,16 @@
                 保護者より
                 <%= link_to '編集する', edit_parent_report_path(@report.id), class: "btn btn-outline-success" %>
                 </th>
-              <td><%= @report.comment %></td>
+              <td>
+                <%= @report.comment %>
+                  <%= button_to  parent_report_toggle_path(@report), method: :patch do %>
+                    <% if @report.is_parent_read %>
+                      ★
+                    <% else %>
+                      ☆
+                    <% end %>
+                  <% end %>
+              </td>
             </tr>
           </table>
         </div>

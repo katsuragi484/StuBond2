@@ -15,7 +15,9 @@ Rails.application.routes.draw do
     end
     resources :students, only: [:index, :show, :edit, :update]
     resources :homeworks, only: [:index, :create, :update, :show]
-    resources :reports, only: [:index, :show, :edit, :update]
+    resources :reports, only: [:index, :show, :edit, :update] do
+      patch 'toggle' => 'reports#toggle'
+    end
   end
 
   # 生徒用

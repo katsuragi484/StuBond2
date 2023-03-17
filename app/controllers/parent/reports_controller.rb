@@ -24,6 +24,13 @@ class Parent::ReportsController < ApplicationController
     end
   end
 
+  def toggle
+    report = Report.find(params[:report_id])
+    report.is_parent_read = !report.is_parent_read
+    report.save
+    redirect_to parent_report_path(report.id)
+  end
+
 
   private
   def report_params
