@@ -58,10 +58,10 @@
             <% @homeworks.each do |homework| %>
               <tr>
                 <td>
-                  <% link_to student_homework_done_path(homework), method: :patch do %>
-                    <% if homework.completed %>
+                  <%= link_to student_homework_done_path(homework), method: :patch do %>
+                    <% if homework.is_completed %>
                       ✅
-                    <% else %>
+                    <% elsif !homework.is_completed %>
                       ☐
                     <% end %>
                   <% end %>

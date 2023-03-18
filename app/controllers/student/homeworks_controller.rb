@@ -6,7 +6,7 @@ class Student::HomeworksController < ApplicationController
   end
   def done
     homework = Homework.find(params[:homework_id])
-    if homework.completed == !homework.completed
+    homework.is_completed = !homework.is_completed
     homework.save
     redirect_to student_report_path(homework.report_id)
   end
