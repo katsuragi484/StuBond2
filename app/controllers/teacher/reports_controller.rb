@@ -53,6 +53,6 @@ class Teacher::ReportsController < ApplicationController
   private
   def report_params
     # _destroyは、Homeworkモデルのフォームが空のときに空データが送信されないために追加
-    params.require(:report).permit(:student_id, :teacher_id, :body, :title, :subject_id, homeworks_attributes: [:id, :task, :deadline, :_destroy])
+    params.require(:report).permit(:student_id, :teacher_id, :body, :title, :subject_id, homeworks_attributes: [:id, :task, :deadline,:is_done, :_destroy])
   end
 end

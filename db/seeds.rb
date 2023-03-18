@@ -9,7 +9,8 @@
 require "securerandom"
 # Admin User Dataを作成
 Admin.create!(
-    email: SecureRandom.alphanumeric+"@example.com",
+    # email: SecureRandom.alphanumeric+"@example.com",
+    email: "admin@test",
     code: 'testcode',
     password: 'password',
     password_confirmation: 'password'

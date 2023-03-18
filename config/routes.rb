@@ -36,7 +36,9 @@ Rails.application.routes.draw do
     end
     resources :chats, only: [:create]
     resources :chatrooms, only: [:index, :show]
-    resources :homeworks, only: [:show, :update]
+    resources :homeworks, only: [:show] do
+      patch "done" => "homeworks#done"
+    end
     resources :reports, only: [:index, :show]
   end
 

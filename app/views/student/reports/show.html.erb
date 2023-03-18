@@ -17,7 +17,14 @@
             </tr>
             <tr>
               <th class="thead-lignt bg-light">保護者より</th>
-              <td><%= @report.comment %></td>
+              <td>
+                <%= @report.comment %>
+                <% if @report.is_parent_read %>
+                  ★
+                <% else %>
+                  ☆
+                <% end %>
+              </td>
             </tr>
           </table>
         </div>
@@ -42,6 +49,7 @@
         <table class="table mt-4" style="width: 95%">
           <thead class="thead-lignt bg-light">
             <tr>
+              <th></th>
               <th>日付</th>
               <th>宿題内容</th>
             </tr>
@@ -49,6 +57,15 @@
           <tbody>
             <% @homeworks.each do |homework| %>
               <tr>
+                <td>
+                  <% link_to student_homework_done_path(homework), method: :patch do %>
+                    <% if homework.completed %>
+                      ✅
+                    <% else %>
+                      ☐
+                    <% end %>
+                  <% end %>
+                </td>
                 <td><%= homework.deadline %></td>
                 <td><%= homework.task %></td>
               </tr>

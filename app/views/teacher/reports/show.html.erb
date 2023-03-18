@@ -17,7 +17,14 @@
             </tr>
             <tr>
               <th class="thead-lignt bg-light">保護者より</th>
-              <td><%= @report.comment %></td>
+              <td>
+                <%= @report.comment %>
+                <% if @report.is_parent_read %>
+                  ★
+                <% else %>
+                  ☆
+                <% end %>
+              </td>
             </tr>
           </table>
         </div>
