@@ -8,4 +8,12 @@ class Report < ApplicationRecord
 # reject_ifは、子モデルが空である場合、そのモデルを無視する
   accepts_nested_attributes_for :homeworks, reject_if: :all_blank
 
+  def self.search(search)
+    if search
+      where('title LIKE ? OR body LIKE ?', "%#{search}%", "%#{search}%")
+    else
+      all
+    end
+  end
+
 end

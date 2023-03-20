@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
   # 保護者用
   devise_for :parent, controllers: {
     registrations: "parent/registrations",
@@ -61,6 +63,8 @@ Rails.application.routes.draw do
     resources :chatrooms, only: [:index, :show]
     resources :students, only: [:index, :show, :edit, :update]
     resources :homeworks, only: [:index, :show]
+    post "search" => "searches#search"
+
   end
 
   # 管理者用

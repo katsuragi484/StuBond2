@@ -2,6 +2,13 @@ class Teacher::HomeworksController < ApplicationController
   def index
     @students = Student.all
 
+    @search = params[:search]
+    if @search == "生徒"
+      @students = Student.search(params[:word])
+    elsif @search == "報告書内容"
+      @reports = Report.search(params[:word])
+    end
+
   end
 
   def show

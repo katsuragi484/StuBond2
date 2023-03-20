@@ -17,4 +17,12 @@ class Student < ApplicationRecord
     image.variant(resize_to_limit: [width, height]).processed
   end
 
+  def self.search(search)
+    if search
+      where('last_name LIKE ? OR first_name LIKE ?', "%#{search}%", "%#{search}%")
+    else
+      all
+    end
+  end
+
 end
