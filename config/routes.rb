@@ -77,6 +77,8 @@ Rails.application.routes.draw do
     resources :reports, only: [:index, :show]
     resources :subjects, only: [:index, :create, :edit, :update]
     resources :students, only: [:index, :show, :edit, :update]
+    post "search" => "searches#search"
+
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -25,6 +25,7 @@
             <% end %>
           </li>
         </ul>
+      <%= render 'student/search'%>
     </div>
 
       <!--保護者側ログイン-->
@@ -53,6 +54,7 @@
               <% end %>
             </li>
           </ul>
+          <%= render 'parent/search'%>
         </div>
 
       <!--講師側ログイン-->
@@ -100,7 +102,7 @@
             <% end %>
           </li>
         </ul>
-        <%#= render 'layouts/search'%>
+          <%= render 'admin/search'%>
       </div>
 
       <!--生徒側ログアウト-->
