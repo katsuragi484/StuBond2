@@ -1,7 +1,13 @@
 class Admin::HomeworksController < ApplicationController
   def index
-    @students = Student.all
-
+     @search = session[:search]
+    if @search == "生徒"
+      @students = Student.search(session[:word])
+    else
+      @students = Student.all
+    end
+    session[:search].clear
+    session[:word].clear
   end
 
   def show

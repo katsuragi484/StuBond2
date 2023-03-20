@@ -2,11 +2,12 @@ class Teacher::HomeworksController < ApplicationController
   def index
     @search = session[:search]
     if @search == "生徒"
-      @students = Student.search(params[:word])
+      @students = Student.search(session[:word])
     else
       @students = Student.all
     end
-
+    session[:search].clear
+    session[:word].clear
   end
 
   def show
