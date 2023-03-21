@@ -27,12 +27,16 @@ class Teacher::ReportsController < ApplicationController
         @reports = Report.where(subject_id: @subject.id)
       elsif @search == "報告書内容"
         @reports =Report.search(session[:word])
-      else
-        @reports = Report.all
       end
+    else
+        @reports = Report.all
     end
-    session[:search].clear
-    session[:word].clear
+    if session[:search]
+      session[:search].clear
+    end
+    if session[:search]
+      session[:word].clear
+    end
   end
 
   def show
