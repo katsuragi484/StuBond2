@@ -1,1 +1,15 @@
-top
+<div class="container">
+  <div class="form-group row">
+    <div class="col">
+      <h3 class="mt-2">TOPページ</h3>
+    </div>
+  </div>
+  <div class="form-group row">
+    <div class="col">
+        <%= link_to '生徒の方',  new_student_session_path, class: "btn btn-outline-success" %>
+    </div>
+    <div class="col">
+        <%= link_to '保護者の方',  new_parent_session_path, class: "btn btn-outline-success" %>
+    </div>
+  </div>
+</div>
