@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+# 共通
+    root to: "homes#top"
 
   # 保護者用
   devise_for :parent, controllers: {
@@ -7,7 +9,6 @@ Rails.application.routes.draw do
     sessions: "parent/sessions"
   }
   namespace :parent do
-    root to: "homes#top"
     resource :parents, only: [] do
       get "my_page" => "parents#show"
       get "information/edit" => "parents#edit"
@@ -28,7 +29,6 @@ Rails.application.routes.draw do
     sessions: "student/sessions"
   }
   namespace :student do
-    root to: "homes#top"
     resource :students, only: [] do
       get "my_page" => "students#show"
       get "information/edit" => "students#edit"
@@ -50,7 +50,6 @@ Rails.application.routes.draw do
     sessions: "teacher/sessions"
   }
   namespace :teacher do
-    root to: "homes#top"
     resource :teachers, only: [] do
       get "my_page" => "teachers#show"
       get "information/edit" => "teachers#edit"
@@ -72,7 +71,6 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
   namespace :admin do
-    root to: "homes#top"
     resources :homeworks, only: [:index, :show]
     resources :reports, only: [:index, :show]
     resources :subjects, only: [:index, :create, :edit, :update]
