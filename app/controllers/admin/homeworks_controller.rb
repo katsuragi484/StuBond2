@@ -1,4 +1,6 @@
 class Admin::HomeworksController < ApplicationController
+  before_action :authenticate_admin!
+
   def index
      @search = session[:search]
     if @search == "生徒"

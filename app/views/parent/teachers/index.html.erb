@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="form-group row">
+    <div class="col">
+      <h3 class="mt-2">講師一覧</h3>
+    </div>
+  </div>
+  <table class="table">
+    <thead class="thead-lignt bg-light">
+      <tr>
+        <th>講師ID</th>
+        <th>氏名</th>
+
+      </tr>
+    </thead>
+    <tbody>
+        <% @teachers.each do |teacher| %>
+        <tr>
+          <td><%= teacher.id %></td>
+          <td><%= link_to teacher.last_name + teacher.first_name, parent_teacher_path(teacher.id) %></td>
+        </tr>
+        <% end %>
+    </tbody>
+  </table>
+</div>

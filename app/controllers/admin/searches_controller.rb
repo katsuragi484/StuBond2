@@ -1,4 +1,6 @@
 class Admin::SearchesController < ApplicationController
+  before_action :authenticate_admin!
+
   def search
     session[:search] = params[:search]
     session[:word] = params[:word]
