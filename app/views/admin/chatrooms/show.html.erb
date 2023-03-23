@@ -15,22 +15,22 @@
       <% @chats.each do |m| %>
         <div class="chat-box">
           <% if m.student_id%>
-              <!--<div class="chat-face">-->
-              <!--  <%#= image_tag m.user.avatar, class:"user-image" %>-->
-              <!--</div>-->
+              <div class="chat-face">
+                <%= image_tag m.student.get_image(100,100), class:"user-image" %>
+              </div>
               <div class="chat-name">
                 <strong><%= m.student.last_name %>さん</strong>
               </div>
           <% elsif m.parent_id%>
               <!--<div class="chat-face">-->
-              <!--  <%#= image_tag m.user.avatar, class:"user-image" %>-->
+              <!--  <%#= image_tag m.student.get_image(100,100), class:"user-image" %>-->
               <!--</div>-->
               <div class="chat-name">
                 <strong>保護者様</strong>
               </div>
           <% elsif m.admin_id%>
               <!--<div class="chat-face">-->
-              <!--  <%#= image_tag m.user.avatar, class:"user-image" %>-->
+              <!--  <%#= image_tag m.student.get_image(100,100), class:"user-image" %>-->
               <!--</div>-->
               <div class="chat-name">
                 <strong>室長</strong>
