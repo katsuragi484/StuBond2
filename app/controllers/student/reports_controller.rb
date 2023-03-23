@@ -1,4 +1,5 @@
 class Student::ReportsController < ApplicationController
+  before_action :authenticate_student!
 
   def index
     if @search = params[:search]

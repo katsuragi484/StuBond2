@@ -1,4 +1,6 @@
 class Parent::ParentsController < ApplicationController
+  before_action :authenticate_parent!
+
   def show
     @parent = current_parent
   end

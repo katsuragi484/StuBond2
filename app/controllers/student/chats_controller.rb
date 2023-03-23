@@ -1,4 +1,6 @@
 class Student::ChatsController < ApplicationController
+  before_action :authenticate_student!
+
   def create
     if Chatroom.where(student_id: current_student.id, room_id: params[:chat][:room_id]).present?
       @chat = Chat.create(params.require(:chat).permit(:student_id, :message, :room_id).merge(student_id: current_student.id))

@@ -1,4 +1,6 @@
 class Student::HomeworksController < ApplicationController
+  before_action :authenticate_student!
+
   def show
     @student = current_student
     @reports = Report.where(student_id: @student.id)

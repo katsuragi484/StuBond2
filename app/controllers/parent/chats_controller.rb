@@ -1,4 +1,6 @@
 class Parent::ChatsController < ApplicationController
+  before_action :authenticate_parent!
+
   def create
     if Chatroom.where(parent_id: current_parent.id, room_id: params[:chat][:room_id]).present?
       @chat = Chat.create(params.require(:chat).permit(:parent_id, :message, :room_id).merge(parent_id: current_parent.id))

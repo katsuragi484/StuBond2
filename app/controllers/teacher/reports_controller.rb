@@ -1,4 +1,6 @@
 class Teacher::ReportsController < ApplicationController
+  before_action :authenticate_teacher!
+
   def new
     @report = Report.new
 

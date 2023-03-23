@@ -1,4 +1,6 @@
 class Teacher::SearchesController < ApplicationController
+  before_action :authenticate_teacher!
+
   def search
     session[:search] = params[:search]
     session[:word] = params[:word]

@@ -1,4 +1,6 @@
 class Parent::TeachersController < ApplicationController
+  before_action :authenticate_parent!
+
   def index
     @teachers = Teacher.all
   end

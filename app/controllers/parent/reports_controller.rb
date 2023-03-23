@@ -1,4 +1,5 @@
 class Parent::ReportsController < ApplicationController
+  before_action :authenticate_parent!
 
   def index
     students = Student.where(parent_id: current_parent.id)
