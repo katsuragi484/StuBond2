@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       get "unsubscribe" => "parents#unsubscribe"
       patch "withdraw" => "parents#withdraw"
     end
+    resources :chats, only: [:create]
+    resources :chatrooms, only: [:show]
     resources :students, only: [:index, :show, :edit, :update]
     resources :homeworks, only: [:index, :create, :update, :show]
     resources :reports, only: [:index, :show, :edit, :update] do
@@ -37,7 +39,7 @@ Rails.application.routes.draw do
       patch "withdraw" => "students#withdraw"
     end
     resources :chats, only: [:create]
-    resources :chatrooms, only: [:index, :show]
+    resources :chatrooms, only: [:show]
     resources :homeworks, only: [:show] do
       patch "done" => "homeworks#done"
     end
@@ -58,8 +60,6 @@ Rails.application.routes.draw do
       patch "withdraw" => "teachers#withdraw"
     end
     resources :reports, only: [:new, :create, :index, :show, :edit, :update]
-    resources :chats, only: [:create]
-    resources :chatrooms, only: [:index, :show]
     resources :students, only: [:index, :show, :edit, :update]
     resources :homeworks, only: [:index, :show]
     post "search" => "searches#search"
@@ -75,6 +75,8 @@ Rails.application.routes.draw do
     resources :reports, only: [:index, :show]
     resources :subjects, only: [:index, :create, :edit, :update]
     resources :students, only: [:index, :show, :edit, :update]
+    resources :chats, only: [:create]
+    resources :chatrooms, only: [:index, :show, :create]
     post "search" => "searches#search"
 
   end

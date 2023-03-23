@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_17_070509) do
+ActiveRecord::Schema.define(version: 2023_03_23_023535) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -66,10 +66,10 @@ ActiveRecord::Schema.define(version: 2023_03_17_070509) do
     t.integer "admin_id"
     t.integer "student_id"
     t.integer "parent_id"
-    t.integer "room_id", null: false
     t.string "message", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "chatroom_id", null: false
   end
 
   create_table "homeworks", force: :cascade do |t|
