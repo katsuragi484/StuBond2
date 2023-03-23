@@ -1,6 +1,6 @@
 class Chat < ApplicationRecord
-  belongs_to :admin
-  belongs_to :student
-  belongs_to :parent
-  belongs_to :chat_room
+  belongs_to :admin, optional: true
+  belongs_to :student, optional: true
+  belongs_to :parent, optional: true
+  belongs_to :chatroom
 end
