@@ -16,19 +16,25 @@
       </tr>
     </thead>
     <tbody>
-      <% @reports.each do |report| %>
-        <tr>
-          <td><%= l report.created_at, format: :short %></td>
-          <td><%= report.title %></td>
-          <td><%= report.subject.subject_name %></td>
-          <td><%= report.student.last_name %>さん</td>
-          <td><%= link_to '表示する', teacher_report_path(report.id), class: "btn btn-outline-success" %></td>
-          <td><%= link_to '表示する', teacher_homework_path(report.student_id), class: "btn btn-outline-success" %></td>
-        </tr>
+      <% if @reports.present? %>
+        <% @reports.each do |report| %>
+          <tr>
+            <td><%= l report.created_at, format: :short %></td>
+            <td><%= report.title %></td>
+            <td><%= report.subject.subject_name %></td>
+            <td><%= report.student.last_name %>さん</td>
+            <td><%= link_to '表示する', teacher_report_path(report.id), class: "btn btn-outline-success" %></td>
+            <td><%= link_to '表示する', teacher_homework_path(report.student_id), class: "btn btn-outline-success" %></td>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>
 
-
+  <div class="form-group row">
+    <div class="col">
+      <%= link_to '新規作成', new_teacher_report_path, class: "btn btn-outline-success" %>
+    </div>
+  </div>
 
 </div>

@@ -17,16 +17,18 @@
       </tr>
     </thead>
     <tbody>
-      <% @reports.each do |report| %>
-        <tr>
-          <td><%= l report.created_at, format: :short %></td>
-          <td><%= report.title %></td>
-          <td><%= report.subject.subject_name %></td>
-          <td><%= report.student.last_name %>さん</td>
-          <td><%= report.teacher.last_name %></td>
-          <td><%= link_to '表示する', admin_report_path(report.id), class: "btn btn-outline-success" %></td>
-          <td><%= link_to '表示する', admin_homework_path(report.student_id), class: "btn btn-outline-success" %></td>
-        </tr>
+      <% if @reports.present? %>
+        <% @reports.each do |report| %>
+          <tr>
+            <td><%= l report.created_at, format: :short %></td>
+            <td><%= report.title %></td>
+            <td><%= report.subject.subject_name %></td>
+            <td><%= report.student.last_name %>さん</td>
+            <td><%= report.teacher.last_name %></td>
+            <td><%= link_to '表示する', admin_report_path(report.id), class: "btn btn-outline-success" %></td>
+            <td><%= link_to '表示する', admin_homework_path(report.student_id), class: "btn btn-outline-success" %></td>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>

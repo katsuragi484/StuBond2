@@ -16,16 +16,18 @@
       </tr>
     </thead>
     <tbody>
-      <% @reports.each do |report| %>
-        <% if report.student_id == current_student.id %>
-          <tr>
-            <td><%= l report.created_at, format: :short %></td>
-            <td><%= report.title %></td>
-            <td><%= report.subject.subject_name %></td>
-            <td><%= report.teacher.last_name %></td>
-            <td><%= link_to '表示する', student_report_path(report.id), class: "btn btn-outline-success" %></td>
-            <td><%= link_to '表示する', student_homework_path(current_student.id), class: "btn btn-outline-success" %></td>
-          </tr>
+      <% if @reports.present? %>
+        <% @reports.each do |report| %>
+          <% if report.student_id == current_student.id %>
+            <tr>
+              <td><%= l report.created_at, format: :short %></td>
+              <td><%= report.title %></td>
+              <td><%= report.subject.subject_name %></td>
+              <td><%= report.teacher.last_name %></td>
+              <td><%= link_to '表示する', student_report_path(report.id), class: "btn btn-outline-success" %></td>
+              <td><%= link_to '表示する', student_homework_path(current_student.id), class: "btn btn-outline-success" %></td>
+            </tr>
+          <% end %>
         <% end %>
       <% end %>
     </tbody>

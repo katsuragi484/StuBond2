@@ -59,11 +59,8 @@
               <tr>
                 <td>
                   <%= link_to student_homework_done_path(homework), method: :patch do %>
-                    <% if homework.is_completed %>
-                      ✅
-                    <% elsif !homework.is_completed %>
-                      ☐
-                    <% end %>
+                    <!--homework.is_completed - チェックボックスの初期値、値として使用。onchange: 'this.form.submit()' 自動的に送信するためのJavaScriptコード-->
+                    <%= check_box_tag :is_completed, homework.is_completed, homework.is_completed, onchange: 'this.form.submit()' %>
                   <% end %>
                 </td>
                 <td><%= homework.deadline %></td>

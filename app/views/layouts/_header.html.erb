@@ -16,6 +16,11 @@
             <% end %>
           </li>
           <li class="mr-2">
+            <%= link_to student_homework_path(current_student.id), class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+              宿題一覧
+            <% end %>
+          </li>
+          <li class="mr-2">
             <%= link_to student_chatroom_path(1), class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
               チャット
             <% end %>
@@ -60,10 +65,10 @@
               <% end %>
             </li>
             <li class="mr-2">
-            <%= link_to parent_teachers_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
-              講師一覧
-            <% end %>
-          </li>
+              <%= link_to parent_teachers_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+                講師一覧
+              <% end %>
+            </li>
             <li class="mr-2">
               <%= link_to my_page_parent_parents_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
                 マイページ

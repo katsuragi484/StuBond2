@@ -67,6 +67,7 @@
 
 
     </div>
-    <%= link_to '編集する', edit_teacher_report_path(@report.id), class: "btn btn-outline-success" %></td>
-
+    <% if @report.teacher_id == current_teacher.id %>
+      <%= link_to '編集する', edit_teacher_report_path(@report.id), class: "btn btn-outline-success" %></td>
+    <% end %>
 </div>
