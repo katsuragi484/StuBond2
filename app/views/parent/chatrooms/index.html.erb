@@ -1,22 +1,19 @@
 <div class="container">
   <div class="form-group row">
     <div class="col">
-      <h3 class="mt-2">生徒選択</h3>
+      <h3 class="mt-2">お子様選択</h3>
     </div>
   </div>
   <table class="table">
     <thead class="thead-lignt bg-light">
       <tr>
-        <th>会員ID</th>
         <th>氏名</th>
-
       </tr>
     </thead>
     <tbody>
         <% @students.each do |student| %>
         <tr>
-          <td><%= student.id %></td>
-          <td><%= link_to student.last_name + student.first_name, admin_chatroom_path(student.id) %></td>
+          <td><%= link_to student.last_name + student.first_name, parent_chatroom_path(student.id) %></td>
         </tr>
         <% end %>
     </tbody>

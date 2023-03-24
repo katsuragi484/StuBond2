@@ -10,6 +10,8 @@ class Student::ChatsController < ApplicationController
     else
       flash[:alert] = "メッセージ送信に失敗しました。"
     end
+    redirect_to student_chatroom_path(1)
+
   end
 
   private

@@ -15,13 +15,13 @@
       <% @chats.each do |m| %>
         <div class="chat-box">
           <% if m.student_id%>
-              <!--<div class="chat-face">-->
-              <!--  <%#= image_tag m.user.avatar, class:"user-image" %>-->
-              <!--</div>-->
-              <div class="chat-name">
-                <strong><%= m.last_name %>さん</strong>
+              <div class="chat-face">
+                <%= image_tag m.student.get_image(100,100), class:"user-image" %>
               </div>
-          <% elsif m.student.parent_id%>
+              <div class="chat-name">
+                <strong><%= m.student.last_name %>さん</strong>
+              </div>
+          <% elsif m.parent_id%>
               <!--<div class="chat-face">-->
               <!--  <%#= image_tag m.user.avatar, class:"user-image" %>-->
               <!--</div>-->
@@ -37,7 +37,7 @@
               </div>
           <% end %>
         </div>
-        <div class="chat-hukidashi"> <strong><%= m.content %></strong> <br>
+        <div class="chat-hukidashi"> <strong><%= m.message %></strong> <br>
           <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
         </div>
       <% end %>
@@ -46,7 +46,7 @@
   <div class="posts">
     <%= form_with model: @chat, url: student_chats_path do |f| %>
       <%= f.text_field :message, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
-        <%= f.hidden_field :room_id, value: @chatroom.id %>
+        <%= f.hidden_field :chatroom_id, value: @chatroom.id %>
           <%= f.submit "投稿",class: 'form-submit'%>
     <% end %>
   </div>
