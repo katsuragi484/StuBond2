@@ -18,6 +18,15 @@ class Teacher::TeachersController < ApplicationController
     end
   end
 
+  def withdraw
+    @teacher = Teacher.find(current_teacher.id)
+    # is_deletedカラムをfalseに変更することにより削除フラグを立てる
+    @teacher.update(is_deleted: false)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
+  end
+
   private
 
   def teacher_params

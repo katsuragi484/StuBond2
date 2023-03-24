@@ -76,7 +76,7 @@ Rails.application.routes.draw do
     resources :homeworks, only: [:index, :show]
     resources :reports, only: [:index, :show]
     resources :subjects, only: [:index, :create, :edit, :update]
-    resources :teachers, only: [:index, :show]
+    resources :teachers, only: [:index, :show, :edit, :update]
     resources :students, only: [:index, :show, :edit, :update]
     resources :chats, only: [:create]
     resources :chatrooms, only: [:index, :show, :create]

@@ -18,6 +18,15 @@ class Student::StudentsController < ApplicationController
     end
   end
 
+  def withdraw
+    @student = Student.find(current_student.id)
+    # is_deletedカラムをfalseに変更することにより削除フラグを立てる
+    @student.update(is_deleted: false)
+    reset_session
+    flash[:notice] = "退会処理を実行いたしました"
+    redirect_to root_path
+  end
+
   private
 
   def student_params

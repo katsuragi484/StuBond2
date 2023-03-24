@@ -39,7 +39,7 @@ class Teacher::SessionsController < Devise::SessionsController
 
     def teacher_state
       ## 【処理内容1】 入力されたemailからアカウントを1件取得
-      @teacher = Teacher.find_by(email: params[:teacher][:email])
+      @teacher = Teacher.find_by(code: params[:teacher][:code])
       ## アカウントを取得できなかった場合、このメソッドを終了する
       return if !@teacher
       ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別

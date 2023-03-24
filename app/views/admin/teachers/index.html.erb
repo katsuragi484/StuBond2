@@ -9,6 +9,7 @@
       <tr>
         <th>講師ID</th>
         <th>氏名</th>
+        <th>ステータス</th>
 
       </tr>
     </thead>
@@ -17,6 +18,13 @@
         <tr>
           <td><%= teacher.id %></td>
           <td><%= link_to teacher.last_name + teacher.first_name, admin_teacher_path(teacher.id) %></td>
+          <td><!--有効、退会ステータス-->
+              <% if teacher.is_deleted == true %>
+                <strong class="text-success">有効</strong>
+              <% else %>
+                退会
+              <% end %>
+          </td>
         </tr>
         <% end %>
     </tbody>

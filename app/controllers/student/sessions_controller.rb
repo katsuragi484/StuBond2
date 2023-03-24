@@ -41,14 +41,16 @@ class Student::SessionsController < Devise::SessionsController
 
   def student_state
     ## 【処理内容1】 入力されたemailからアカウントを1件取得
-    @student = Student.find_by(email: params[:student][:email])
+    @student = Student.find_by(code: params[:student][:code])
+    # byebug
     ## アカウントを取得できなかった場合、このメソッドを終了する
     return if !@student
     ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
     if @student.valid_password?(params[:student][:password])&& @student.is_deleted
-      ## 【処理内容3】
+    else
       flash[:danger] = '退会済みです。申し訳ございませんが、別のメールアドレスをお使いください。'
       redirect_to new_student_session_path
+
     end
   end
 

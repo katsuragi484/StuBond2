@@ -2,11 +2,11 @@
   <div class='row'>
     <h3 class="page-name">
       <strong>
-        生徒情報編集
+        講師情報編集
       </strong>
     </h3>
   </div></br>
-  <%= form_with model:@student, url: admin_student_path, local:true do |f| %>
+  <%= form_with model:@teacher, url: admin_teacher_path, local:true do |f| %>
 
   <div class="row">
     <div class="col">
@@ -57,10 +57,10 @@
 
       <div class="row">
         <div class="col-3">
-          <p>学校名</p>
+          <p>ひとこと</p>
         </div>
         <div class="col-9">
-          <%= f.text_field :school %>
+          <%= f.text_field :word %>
         </div>
       </div>
 
