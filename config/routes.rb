@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       patch "withdraw" => "parents#withdraw"
     end
     resources :chats, only: [:create]
-    resources :chatrooms, only: [:show]
+    resources :chatrooms, only: [:show, :index]
     resources :students, only: [:index, :show, :edit, :update]
     resources :teachers, only: [:index, :show]
     resources :homeworks, only: [:index, :create, :update, :show]
