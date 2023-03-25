@@ -16,8 +16,7 @@ class Admin::ChatroomsController < ApplicationController
       # チャットルームがない場合は新規作成する
       @chatroom = Chatroom.create(admin_id: current_admin.id, student_id: @student.id, parent_id: @student.parent_id)
     end
-    
-    #byebug
+
     @chats = Chat.where(chatroom_id: @chatroom.id)
     @chat = Chat.new
 
