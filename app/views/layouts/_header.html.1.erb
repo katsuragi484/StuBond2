@@ -1,0 +1,196 @@
+<header>
+  <!-- ナビゲーションバー -->
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light p-4 navbar-expand-sm">
+    <div class="container-fluid">
+
+
+<!--ロゴ用-->
+       <!--<div><%#= link_to image_tag('logo.image.jpg', :size => '50x50'), root_path%></div>-->
+      <!--生徒側ログイン-->
+      <% if student_signed_in? %>
+      <span class="navbar-brand mb-0 h1">ようこそ、<%= current_student.last_name %> さん!</span> <!--まだ名前のリンク入れてないよ。-->
+
+    <!-- ハンバーガーメニュー -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mr-2">
+            <%= link_to student_reports_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+              授業報告一覧
+            <% end %>
+          </li>
+          <li class="nav-item mr-2">
+            <%= link_to student_homework_path(current_student.id), class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+              宿題一覧
+            <% end %>
+          </li>
+          <li class="nav-item mr-2">
+            <%= link_to student_chatroom_path(1), class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+              チャット
+            <% end %>
+          </li>
+          <li class="nav-item mr-2">
+            <%= link_to student_teachers_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+              講師一覧
+            <% end %>
+          </li>
+          <li class="nav-item mr-2">
+            <%= link_to my_page_student_students_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+              マイページ
+            <% end %>
+          </li>
+          <li class="nav-item mr-2">
+            <%= link_to destroy_student_session_path, method: :delete, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+              ログアウト
+            <% end %>
+          </li>
+        </ul>
+      <%= render 'student/search'%>
+    </div>
+
+      <!--保護者側ログイン-->
+      <% elsif parent_signed_in? %>
+        <!--ログインしている保護者の生徒と紐づけていない場合は「ようこそ！」と表示させる。-->
+        <% if current_parent.students.first == nil %>
+          <span class="navbar-brand mb-0 h1">ようこそ!</span>
+        <% else %>
+          <span class="navbar-brand mb-0 h1">ようこそ、<%= current_parent.students.first.last_name %> 様!</span> <!--まだ名前のリンク入れてないよ。-->
+        <% end %>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item mr-2">
+              <%= link_to parent_reports_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+                授業報告一覧
+              <% end %>
+            </li>
+            <li class="nav-item mr-2">
+              <%= link_to parent_chatrooms_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+                チャット
+              <% end %>
+            </li>
+            <li class="nav-item mr-2">
+              <%= link_to parent_teachers_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+                講師一覧
+              <% end %>
+            </li>
+            <li class="nav-item mr-2">
+              <%= link_to my_page_parent_parents_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+                マイページ
+              <% end %>
+            </li>
+            <li class="nav-item mr-2">
+              <%= link_to destroy_parent_session_path, method: :delete, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+                ログアウト
+              <% end %>
+            </li>
+          </ul>
+          <%= render 'parent/search'%>
+        </div>
+
+      <!--講師側ログイン-->
+      <% elsif teacher_signed_in? %>
+      <span class="navbar-brand mb-0 h1">ようこそ、<%= current_teacher.last_name %> さん!</span> <!--まだ名前のリンク入れてないよ。-->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mr-2">
+            <%= link_to teacher_reports_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+              授業報告一覧
+            <% end %>
+          </li>
+          <li class="nav-item mr-2">
+            <%= link_to my_page_teacher_teachers_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+              マイページ
+            <% end %>
+          </li>
+          <li class="nav-item mr-2">
+            <%= link_to destroy_teacher_session_path, method: :delete, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+              ログアウト
+            <% end %>
+          </li>
+        </ul>
+          <%= render 'teacher/search'%>
+
+    </div>
+
+      <!--管理者側ログイン-->
+      <% elsif admin_signed_in? %>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mr-2">
+            <%= link_to admin_reports_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+              授業報告一覧
+            <% end %>
+          </li>
+          <li class="nav-item mr-2">
+            <%= link_to admin_students_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+              生徒一覧
+            <% end %>
+          </li>
+          <li class="nav-item mr-2">
+            <%= link_to admin_teachers_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+              講師一覧
+            <% end %>
+          </li>
+          <li class="nav-item mr-2">
+            <%= link_to admin_subjects_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+              教科一覧
+            <% end %>
+          </li>
+          <li class="nav-item mr-2">
+            <%= link_to admin_chatrooms_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+              チャット
+            <% end %>
+          </li>
+          <li class="nav-item mr-2">
+            <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+              ログアウト
+            <% end %>
+          </li>
+        </ul>
+          <%= render 'admin/search'%>
+      </div>
+
+      <!--ログアウト-->
+      <% else %>
+
+    <!-- ハンバーガーメニュー -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item mr-2">
+            <%= link_to new_student_registration_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+              生徒新規登録
+            <% end %>
+          </li>
+          <li class="nav-item mr-2">
+            <%= link_to new_parent_registration_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+              保護者新規登録
+            <% end %>
+          </li>
+          <li class="nav-item mr-2">
+            <%= link_to root_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+              ログイン
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <% end %>
+    </div>
+  </nav>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+
+</header>
+<nav class="navbar sticky-top navbar-light bg-light">
+  <a class="navbar-brand" href="#">Sticky top</a>
+</nav>

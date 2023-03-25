@@ -2,6 +2,6 @@
     <%= form_with url: teacher_search_path, local: true, method: :post do |f| %>
       <%= f.text_field :word %>
       <%= f.select :search, options_for_select([['生徒'], ['報告書内容'], ['教科']]) %>
-      <%= f.submit "検索", class: "btn btn-primary" %>
+      <%= f.submit "検索", class: "btn btn-outline-primary" %>
     <% end %>
   </div>
