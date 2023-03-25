@@ -4,11 +4,11 @@ class Student::ReportsController < ApplicationController
   def index
     if @search = params[:search]
       if @search == "教科" && @subject = Subject.find_by(subject_name: params[:word])
-        @reports = Report.where(subject_id: @subject.id)
+        @reports = Report.where(subject_id: @subject.id).page(params[:page])
       elsif @search == "報告書内容"
-        @reports =Report.search(params[:word])
+        @reports =Report.search(params[:word]).page(params[:page])
       else
-        @reports = Report.all
+        @reports = Report.page(params[:page])
       end
     end
   end

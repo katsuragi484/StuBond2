@@ -2,7 +2,7 @@ class Parent::ChatroomsController < ApplicationController
   before_action :authenticate_parent!
 
   def index
-    @students = Student.where(parent_id: current_parent.id)
+    @students = Student.where(parent_id: current_parent.id).page(params[:page])
   end
 
   def show

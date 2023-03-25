@@ -4,7 +4,7 @@ class Student::HomeworksController < ApplicationController
   def show
     @student = current_student
     @reports = Report.where(student_id: @student.id)
-    @homeworks = Homework.where(report_id: @reports.ids)
+    @homeworks = Homework.where(report_id: @reports.ids).page(params[:page])
   end
   def done
     homework = Homework.find(params[:homework_id])

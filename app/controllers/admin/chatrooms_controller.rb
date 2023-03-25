@@ -1,11 +1,9 @@
 class Admin::ChatroomsController < ApplicationController
   before_action :authenticate_admin!
 
-
   def index
-    @students = Student.all
+    @students = Student.page(params[:page])
   end
-
 
   def show
     @student = Student.find_by(id: params[:id])

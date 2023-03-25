@@ -2,7 +2,7 @@ class Admin::TeachersController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @teachers = Teacher.all
+    @teachers = Teacher.page(params[:page])
   end
 
   def show

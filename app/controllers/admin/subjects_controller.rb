@@ -3,7 +3,7 @@ class Admin::SubjectsController < ApplicationController
 
   def index
     @subject = Subject.new
-    @subjects = Subject.all
+    @subjects = Subject.page(params[:page])
   end
 
   def create
@@ -11,7 +11,7 @@ class Admin::SubjectsController < ApplicationController
     if subject.save
       redirect_to admin_subjects_path
     else
-      @subjects = Subject.all
+      @subjects = Subject.page(params[:page])
       render 'index'
     end
   end

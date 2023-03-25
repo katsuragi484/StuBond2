@@ -2,7 +2,7 @@ class Teacher::StudentsController < ApplicationController
   before_action :authenticate_teacher!
 
   def index
-    @students = Student.all
+    @students = Student.page(params[:page])
   end
 
   def show
