@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     root to: "homes#top"
 
   # 保護者用
-  devise_for :parent, controllers: {
+  devise_for :parent,skip: [:passwords], controllers: {
     registrations: "parent/registrations",
     sessions: "parent/sessions"
   }
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   end
 
   # 生徒用
-  devise_for :student, controllers: {
+  devise_for :student,skip: [:passwords], controllers: {
     registrations: "student/registrations",
     sessions: "student/sessions"
   }
@@ -49,7 +49,7 @@ Rails.application.routes.draw do
   end
 
   # 講師用
-  devise_for :teacher, controllers: {
+  devise_for :teacher,skip: [:passwords], controllers: {
     registrations: "teacher/registrations",
     sessions: "teacher/sessions"
   }
