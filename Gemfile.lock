@@ -99,6 +99,8 @@ GEM
     erubi (1.12.0)
     ffi (1.15.5)
     ffi (1.15.5-x64-mingw-ucrt)
+    font-awesome-sass (6.3.0)
+      sassc (~> 2.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -283,6 +285,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   enum_help
+  font-awesome-sass
   i18n_generators
   image_processing (~> 1.2)
   jbuilder (~> 2.7)
