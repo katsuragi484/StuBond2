@@ -25,6 +25,6 @@ class Admin::StudentsController < ApplicationController
   private
 
   def student_params
-    params.require(:student).permit(:is_deleted, :email, :last_name, :first_name, :last_name_kana, :first_name_kana, :school, :phone_number, :code)
+    params.require(:student).permit(:is_deleted, :email, :last_name, :first_name, :last_name_kana, :first_name_kana, :school, :phone_number, :code, :parent_id)
   end
 end
