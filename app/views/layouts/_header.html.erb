@@ -1,6 +1,6 @@
 <header class="sticky-top">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-image: url('/assets/background2.jpg'); background-size: 80% ">
+    <%= link_to image_tag('logo.image2.jpg', :size => '80x80'), root_path%>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -21,121 +21,121 @@
       <ul class="navbar-nav ml-auto">
         <% if student_signed_in? %>
         <li class="nav-item mr-2">
-          <%= link_to student_reports_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to student_reports_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           授業報告一覧
           <% end %>
         </li>
         <li class="nav-item mr-2">
-          <%= link_to student_homework_path(current_student.id), class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to student_homework_path(current_student.id), class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           宿題一覧
           <% end %>
         </li>
         <li class="nav-item mr-2">
-          <%= link_to student_chatroom_path(1), class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to student_chatroom_path(1), class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           チャット
           <% end %>
         </li>
         <li class="nav-item mr-2">
-          <%= link_to student_teachers_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to student_teachers_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           講師一覧
           <% end %>
         </li>
         <li class="nav-item mr-2">
-          <%= link_to my_page_student_students_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to my_page_student_students_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           マイページ
           <% end %>
         </li>
         <li class="nav-item mr-2">
-          <%= link_to destroy_student_session_path, method: :delete, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to destroy_student_session_path, method: :delete, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           ログアウト
           <% end %>
         </li>
         <% elsif parent_signed_in? %>
         <li class="nav-item mr-2">
-          <%= link_to parent_reports_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to parent_reports_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           授業報告一覧
           <% end %>
         </li>
         <li class="nav-item mr-2">
-          <%= link_to parent_chatrooms_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to parent_chatrooms_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           チャット
           <% end %>
         </li>
         <li class="nav-item mr-2">
-          <%= link_to parent_teachers_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to parent_teachers_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           講師一覧
           <% end %>
         </li>
         <li class="nav-item mr-2">
-          <%= link_to my_page_parent_parents_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to my_page_parent_parents_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           マイページ
           <% end %>
         </li>
         <li class="nav-item mr-2">
-          <%= link_to destroy_parent_session_path, method: :delete, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to destroy_parent_session_path, method: :delete, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           ログアウト
           <% end %>
         </li>
         <%   elsif teacher_signed_in? %>
         <li class="nav-item mr-2">
-          <%= link_to teacher_reports_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to teacher_reports_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           授業報告一覧
           <% end %>
         </li>
         <li class="nav-item mr-2">
-          <%= link_to my_page_teacher_teachers_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to my_page_teacher_teachers_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           マイページ
           <% end %>
         </li>
         <li class="nav-item mr-2">
-          <%= link_to destroy_teacher_session_path, method: :delete, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to destroy_teacher_session_path, method: :delete, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           ログアウト
           <% end %>
         </li>
         <% elsif admin_signed_in? %>
         <li class="nav-item mr-2">
-          <%= link_to admin_reports_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to admin_reports_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           授業報告一覧
           <% end %>
         </li>
         <li class="nav-item mr-2">
-          <%= link_to admin_students_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to admin_students_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           生徒一覧
           <% end %>
         </li>
         <li class="nav-item mr-2">
-          <%= link_to admin_teachers_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to admin_teachers_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           講師一覧
           <% end %>
         </li>
         <li class="nav-item mr-2">
-          <%= link_to admin_subjects_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to admin_subjects_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           教科一覧
           <% end %>
         </li>
         <li class="nav-item mr-2">
-          <%= link_to admin_chatrooms_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to admin_chatrooms_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           チャット
           <% end %>
         </li>
         <li class="nav-item mr-2">
-          <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to destroy_admin_session_path, method: :delete, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           ログアウト
           <% end %>
         </li>
         <% else %>
         <li class="nav-item mr-2">
-          <%= link_to new_student_registration_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to new_student_registration_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           生徒新規登録
           <% end %>
         </li>
         <li class="nav-item mr-2">
-          <%= link_to new_parent_registration_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to new_parent_registration_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           保護者新規登録
           <% end %>
         </li>
         <li class="nav-item mr-2">
-          <%= link_to root_path, class: 'nav-link text-dark btn btn-outline-secondary me-2' do %>
+          <%= link_to root_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           ログイン
           <% end %>
         </li>
