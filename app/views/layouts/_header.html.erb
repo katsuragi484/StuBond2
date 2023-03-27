@@ -4,21 +4,28 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <!--ログイン-生徒-->
     <% if student_signed_in? %>
       <span class="navbar-brand mb-0 h1">ようこそ、<%= current_student.last_name %> さん!</span> <!--まだ名前のリンク入れてないよ。-->
+    <!--ログイン-保護者-->
     <% elsif parent_signed_in? %>
-    <!--ログインしている保護者の生徒と紐づけていない場合は「ようこそ！」と表示させる。-->
+      <!--ログインしている保護者の生徒と紐づけていない場合は「ようこそ！」と表示させる。-->
       <% if current_parent.students.first == nil %>
         <span class="navbar-brand mb-0 h1">ようこそ!</span>
       <% else %>
         <span class="navbar-brand mb-0 h1">ようこそ、<%= current_parent.students.first.last_name %> 様!</span> <!--まだ名前のリンク入れてないよ。-->
       <% end %>
+    <!--ログイン-講師-->
     <% elsif teacher_signed_in? %>
       <span class="navbar-brand mb-0 h1">ようこそ、<%= current_teacher.last_name %> さん!</span> <!--まだ名前のリンク入れてないよ。-->
+    <!--ログイン-管理者-->
     <% elsif admin_signed_in? %>
     <% end %>
+
+    <!--メニュー内容-->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ml-auto">
+        <!--ログイン-生徒-->
         <% if student_signed_in? %>
         <li class="nav-item mr-2">
           <%= link_to student_reports_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
@@ -50,10 +57,17 @@
           ログアウト
           <% end %>
         </li>
+
+        <!--ログイン-保護者-->
         <% elsif parent_signed_in? %>
         <li class="nav-item mr-2">
           <%= link_to parent_reports_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           授業報告一覧
+          <% end %>
+        </li>
+      　<li class="nav-item mr-2">
+          <%= link_to parent_homeworks_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
+          宿題一覧
           <% end %>
         </li>
         <li class="nav-item mr-2">
@@ -76,10 +90,22 @@
           ログアウト
           <% end %>
         </li>
-        <%   elsif teacher_signed_in? %>
+
+        <!--ログイン-講師-->
+        <% elsif teacher_signed_in? %>
         <li class="nav-item mr-2">
           <%= link_to teacher_reports_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
           授業報告一覧
+          <% end %>
+        </li>
+      　<li class="nav-item mr-2">
+          <%= link_to teacher_homeworks_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
+          宿題一覧
+          <% end %>
+        </li>
+        <li class="nav-item mr-2">
+          <%= link_to teacher_students_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
+          生徒一覧
           <% end %>
         </li>
         <li class="nav-item mr-2">
@@ -92,6 +118,8 @@
           ログアウト
           <% end %>
         </li>
+
+        <!--ログイン-管理者-->
         <% elsif admin_signed_in? %>
         <li class="nav-item mr-2">
           <%= link_to admin_reports_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
@@ -142,12 +170,16 @@
         <% end %>
 
       </ul>
+      <!--ログイン-生徒-->
       <% if student_signed_in? %>
       <%= render 'student/search'%>
+      <!--ログイン-保護者-->
       <% elsif parent_signed_in? %>
           <%= render 'parent/search'%>
+      <!--ログイン-講師-->
       <% elsif teacher_signed_in? %>
           <%= render 'teacher/search'%>
+      <!--ログイン-管理者-->
       <% elsif admin_signed_in? %>
           <%= render 'admin/search'%>
       <% else %>
