@@ -15,8 +15,8 @@
               <th class="thead-lignt bg-light">報告書詳細</th>
               <td><%= @report.body %></td>
             </tr>
-            <tr>
-              <%= form_with model: @report, url: parent_report_path(@report.id) do |f| %>
+            <%= form_with model: @report, url: parent_report_path(@report.id) do |f| %>
+              <tr>
                 <th class="thead-lignt bg-light">
                   保護者より
                   <div class="actions">
@@ -30,8 +30,9 @@
                     </div>
                   </div>
                 </td>
-              <% end %>
-            </tr>
+              </tr>
+            <% end %>
+
           </table>
         </div>
 
