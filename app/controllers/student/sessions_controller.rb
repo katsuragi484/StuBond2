@@ -46,10 +46,13 @@ class Student::SessionsController < Devise::SessionsController
     ## アカウントを取得できなかった場合、このメソッドを終了する
     return if !@student
     ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
-    if @student.valid_password?(params[:student][:password])&& @student.is_deleted
-    else
+    if !@student.is_deleted
       flash[:danger] = '退会済みです。申し訳ございませんが、別のメールアドレスをお使いください。'
       redirect_to new_student_session_path
+    elsif !@student.valid_password?(params[:student][:password])
+      flash[:danger] = 'ログインコードまたはパスワードに誤りがございます。'
+      redirect_to new_student_session_path
+    else
 
     end
   end
