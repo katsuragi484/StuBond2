@@ -14,7 +14,8 @@ class Admin::ChatsController < ApplicationController
     else
       flash[:alert] = "メッセージ送信に失敗しました。"
     end
-    redirect_to admin_chatrooms_path
+    chatroom = Chatroom.find_by(id: @chat.chatroom_id)
+    redirect_to admin_chatroom_path(chatroom.student_id)
 
   end
 

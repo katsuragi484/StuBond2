@@ -10,7 +10,8 @@ class Parent::ChatsController < ApplicationController
     else
       flash[:alert] = "メッセージ送信に失敗しました。"
     end
-    redirect_to parent_chatrooms_path
+    chatroom = Chatroom.find_by(id: @chat.chatroom_id)
+    redirect_to parent_chatroom_path(chatroom.student_id)
 
   end
 
