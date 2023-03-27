@@ -38,7 +38,7 @@ class Parent::SessionsController < Devise::SessionsController
     return if !@parent
     ## 【処理内容2】 取得したアカウントのパスワードと入力されたパスワードが一致してるかを判別
     if @parent.students
-      if @parent.students.where(is_deleted: true).count = 0
+      if @parent.students.where(is_deleted: true).count == 0
         flash[:danger] = '退会済みです。申し訳ございませんが、別のメールアドレスをお使いください。'
         redirect_to new_parent_session_path
       elsif !@parent.valid_password?(params[:parent][:password])
