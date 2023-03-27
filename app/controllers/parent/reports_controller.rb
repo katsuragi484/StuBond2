@@ -12,6 +12,8 @@ class Parent::ReportsController < ApplicationController
       else
         @reports = Report.where(student_id: students.ids).page(params[:page])
       end
+    else
+      @reports = Report.where(student_id: students.ids).page(params[:page])
     end
 
   end
