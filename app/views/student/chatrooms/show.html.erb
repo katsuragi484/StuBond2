@@ -5,11 +5,6 @@
       <h3 class="mt-2">チャットルーム</h3>
     </div>
   </div>
-  <div class="user-name">
-    <h5>
-      <%= @student.last_name %>さん
-    </h5>
-  </div>
 <hr>
 <div class="chats">
   <div class="chat">
@@ -17,10 +12,6 @@
       <% @chats.each do |m| %>
         <div class="chat-box">
           <% if m.student_id%>
-              <div class="chat-name text-right">
-                <i class="fas fa-user-edit"></i>
-                <strong><%= m.student.last_name %>さん</strong>
-              </div>
               <div class="chat-hukidashi mb-3 text-right"> <strong><%= m.message %></strong> <br>
                 <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
               </div>
@@ -49,7 +40,7 @@
     <%= form_with model: @chat, url: student_chats_path do |f| %>
       <%= f.text_field :message, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
         <%= f.hidden_field :chatroom_id, value: @chatroom.id %>
-          <%= f.submit "投稿",class: 'btn btn-outline-success'%>
+          <%= f.submit "投稿",class: 'btn btn-outline-primary'%>
     <% end %>
   </div>
 </div>
