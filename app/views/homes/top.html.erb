@@ -5,11 +5,142 @@
     </div>
   </div>
   <div class="form-group row">
+
+    <% if (student_signed_in? || parent_signed_in? || teacher_signed_in? || admin_signed_in?) == false %>
     <div class="col">
         <%= link_to '生徒の方',  new_student_session_path, class: "btn btn-outline-success" %>
     </div>
     <div class="col">
         <%= link_to '保護者の方',  new_parent_session_path, class: "btn btn-outline-success" %>
     </div>
+
+    <!--メニュー内容-->
+    <!--ログイン-生徒-->
+    <% elsif student_signed_in? %>
+
+      <%= link_to student_reports_path, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      授業報告一覧
+      <% end %>
+
+
+      <%= link_to student_homework_path(current_student.id), class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      宿題一覧
+      <% end %>
+
+
+      <%= link_to student_chatroom_path(1), class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      チャット
+      <% end %>
+
+
+      <%= link_to student_teachers_path, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      講師一覧
+      <% end %>
+
+
+      <%= link_to my_page_student_students_path, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      マイページ
+      <% end %>
+
+
+      <%= link_to destroy_student_session_path, method: :delete, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      ログアウト
+      <% end %>
+
+
+    <!--ログイン-保護者-->
+    <% elsif parent_signed_in? %>
+
+      <%= link_to parent_reports_path, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      授業報告一覧
+      <% end %>
+
+
+      <%= link_to parent_homeworks_path, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      宿題一覧
+      <% end %>
+
+
+      <%= link_to parent_chatrooms_path, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      チャット
+      <% end %>
+
+
+      <%= link_to parent_teachers_path, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      講師一覧
+      <% end %>
+
+
+      <%= link_to my_page_parent_parents_path, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      マイページ
+      <% end %>
+
+
+      <%= link_to destroy_parent_session_path, method: :delete, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      ログアウト
+      <% end %>
+
+
+    <!--ログイン-講師-->
+    <% elsif teacher_signed_in? %>
+
+      <%= link_to teacher_reports_path, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      授業報告一覧
+      <% end %>
+
+
+      <%= link_to teacher_homeworks_path, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      宿題一覧
+      <% end %>
+
+
+      <%= link_to teacher_students_path, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      生徒一覧
+      <% end %>
+
+
+      <%= link_to my_page_teacher_teachers_path, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      マイページ
+      <% end %>
+
+
+      <%= link_to destroy_teacher_session_path, method: :delete, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      ログアウト
+      <% end %>
+
+
+    <!--ログイン-管理者-->
+    <% elsif admin_signed_in? %>
+
+      <%= link_to admin_reports_path, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      授業報告一覧
+      <% end %>
+
+
+      <%= link_to admin_students_path, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      生徒一覧
+      <% end %>
+
+
+      <%= link_to admin_teachers_path, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      講師一覧
+      <% end %>
+
+
+      <%= link_to admin_subjects_path, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      教科一覧
+      <% end %>
+
+
+      <%= link_to admin_chatrooms_path, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      チャット
+      <% end %>
+
+
+      <%= link_to destroy_admin_session_path, method: :delete, class: 'btn btn-outline-secondary btn-lg btn-block' do %>
+      ログアウト
+      <% end %>
+
+    <% end %>
   </div>
 </div>

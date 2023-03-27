@@ -1,26 +1,44 @@
 <header class="sticky-top">
   <nav class="navbar navbar-expand-lg navbar-light" style="background-image: url(<%= asset_path('background2.jpg')%>); background-size: 80% ">
-    <%= link_to image_tag('logo.image2.jpg', :size => '80x80'), root_path%>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    <!--ロゴ-->
     <!--ログイン-生徒-->
     <% if student_signed_in? %>
-      <span class="navbar-brand mb-0 h1">ようこそ、<%= current_student.last_name %> さん!</span> <!--まだ名前のリンク入れてないよ。-->
+      <%= link_to image_tag('logo.image2.jpg', :size => '80x80'), my_page_student_students_path %>
+    <!--ログイン-保護者-->
+    <% elsif parent_signed_in? %>
+      <%= link_to image_tag('logo.image2.jpg', :size => '80x80'), my_page_parent_parents_path %>
+    <!--ログイン-講師-->
+    <% elsif teacher_signed_in? %>
+      <%= link_to image_tag('logo.image2.jpg', :size => '80x80'), my_page_teacher_teachers_path %>
+    <!--ログイン-管理者-->
+    <% elsif admin_signed_in? %>
+      <%= link_to image_tag('logo.image2.jpg', :size => '80x80'), admin_reports_path %>
+    <!--ログアウト-->
+    <% else %>
+      <%= link_to image_tag('logo.image2.jpg', :size => '80x80'), root_path%>
+    <% end %>
+
+    <!--ログイン-生徒-->
+    <% if student_signed_in? %>
+      <span class="navbar-brand mb-0 h1">ようこそ、<%= current_student.last_name %> さん!</span>
     <!--ログイン-保護者-->
     <% elsif parent_signed_in? %>
       <!--ログインしている保護者の生徒と紐づけていない場合は「ようこそ！」と表示させる。-->
       <% if current_parent.students.first == nil %>
-        <span class="navbar-brand mb-0 h1">ようこそ!</span>
+        <span class="navbar-brand mb-0 h1 mr-auto">ようこそ!</span>
       <% else %>
-        <span class="navbar-brand mb-0 h1">ようこそ、<%= current_parent.students.first.last_name %> 様!</span> <!--まだ名前のリンク入れてないよ。-->
+        <span class="navbar-brand mb-0 h1 mr-auto">ようこそ、<%= current_parent.students.first.last_name %> 様!</span>
       <% end %>
     <!--ログイン-講師-->
     <% elsif teacher_signed_in? %>
-      <span class="navbar-brand mb-0 h1">ようこそ、<%= current_teacher.last_name %> さん!</span> <!--まだ名前のリンク入れてないよ。-->
+      <span class="navbar-brand mb-0 h1 mr-auto">ようこそ、<%= current_teacher.last_name %> さん!</span>
     <!--ログイン-管理者-->
     <% elsif admin_signed_in? %>
     <% end %>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
     <!--メニュー内容-->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -151,6 +169,8 @@
           ログアウト
           <% end %>
         </li>
+
+        <!--ログアウト-->
         <% else %>
         <li class="nav-item mr-2">
           <%= link_to new_student_registration_path, class: 'nav-link text-dark btn bg-light btn-outline-dark me-2 mt-1 mb-1' do %>
@@ -172,16 +192,16 @@
       </ul>
       <!--ログイン-生徒-->
       <% if student_signed_in? %>
-      <%= render 'student/search'%>
+        <%= render 'student/search'%>
       <!--ログイン-保護者-->
       <% elsif parent_signed_in? %>
-          <%= render 'parent/search'%>
+        <%= render 'parent/search'%>
       <!--ログイン-講師-->
       <% elsif teacher_signed_in? %>
-          <%= render 'teacher/search'%>
+        <%= render 'teacher/search'%>
       <!--ログイン-管理者-->
       <% elsif admin_signed_in? %>
-          <%= render 'admin/search'%>
+        <%= render 'admin/search'%>
       <% else %>
       <% end %>
 
