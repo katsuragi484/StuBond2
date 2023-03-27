@@ -32,7 +32,7 @@ class Admin::SubjectsController < ApplicationController
   private
 
   def subject_params
-    params.require(:subject).permit(:subject_name)
+    params.require(:subject).permit(:subject_name) if params[:subject].present? && params[:subject][:subject_name].present?
   end
 
 end

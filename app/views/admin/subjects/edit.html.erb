@@ -7,6 +7,6 @@
 <%= form_with model: @subject, url: admin_subject_path(@subject.id) do |f| %>
   <%= f.label :教科名 %>
   <%= f.text_field :subject_name %>
-  <%= f.submit "変更を保存", class: "btn btn-success"%>
+  <%= f.submit "変更を保存", class: "btn btn-outline-success"%>
 <% end %>
 </div>
