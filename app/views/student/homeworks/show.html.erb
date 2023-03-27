@@ -16,16 +16,20 @@
           </tr>
         </thead>
         <tbody>
-          <% @homeworks.each do |homework| %>
-            <tr>
-              <td><%= homework.report.subject.subject_name %></td>
-              <td><%= homework.deadline %></td>
-              <td><%=link_to homework.task, student_report_path(homework.report_id) %></td>
-            </tr>
+          <% if @homeworks.present? %>
+            <% @homeworks.each do |homework| %>
+              <tr>
+                <td><%= homework.report.subject.subject_name %></td>
+                <td><%= homework.deadline %></td>
+                <td><%=link_to homework.task, student_report_path(homework.report_id) %></td>
+              </tr>
+            <% end %>
           <% end %>
         </tbody>
       </table>
-      <%= paginate @homeworks %>
+      <% if @homeworks.present? %>
+        <%= paginate @homeworks %>
+      <% end %>
     </div>
   </div>
 </div>

@@ -8,16 +8,19 @@
     <thead class="thead-lignt bg-light">
       <tr>
         <th>氏名</th>
-
       </tr>
     </thead>
     <tbody>
+      <% if @teachers.present? %>
         <% @teachers.each do |teacher| %>
         <tr>
           <td><%= link_to teacher.last_name + teacher.first_name, parent_teacher_path(teacher.id) %></td>
         </tr>
         <% end %>
+      <% end %>
     </tbody>
   </table>
-  <%= paginate @teachers %>
+  <% if @teachers.present? %>
+    <%= paginate @teachers %>
+  <% end %>
 </div>

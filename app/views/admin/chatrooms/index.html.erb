@@ -13,13 +13,17 @@
       </tr>
     </thead>
     <tbody>
+      <% if @students.present? %>
         <% @students.each do |student| %>
         <tr>
           <td><%= student.id %></td>
           <td><%= link_to student.last_name + student.first_name, admin_chatroom_path(student.id) %></td>
         </tr>
         <% end %>
+      <% end %>
     </tbody>
   </table>
-  <%= paginate @students %>
+  <% if @students.present? %>
+    <%= paginate @students %>
+  <% end %>
 </div>

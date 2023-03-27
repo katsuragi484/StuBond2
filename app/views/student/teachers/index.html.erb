@@ -9,17 +9,20 @@
       <tr>
         <th>講師ID</th>
         <th>氏名</th>
-
       </tr>
     </thead>
     <tbody>
+      <% if @teachers.present? %>
         <% @teachers.each do |teacher| %>
         <tr>
           <td><%= teacher.id %></td>
           <td><%= link_to teacher.last_name + teacher.first_name, student_teacher_path(teacher.id) %></td>
         </tr>
         <% end %>
+      <% end %>
     </tbody>
   </table>
-  <%= paginate @teachers %>
+  <% if @teachers.present? %>
+    <%= paginate @teachers %>
+  <% end %>
 </div>

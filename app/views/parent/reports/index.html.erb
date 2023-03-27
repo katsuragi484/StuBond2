@@ -30,7 +30,8 @@
       <% end %>
     </tbody>
   </table>
-  <%= paginate @reports %>
-
+  <% if @reports.present? %>
+    <%= paginate @reports %>
+  <% end %>
 
 </div>

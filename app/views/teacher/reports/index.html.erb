@@ -30,7 +30,9 @@
       <% end %>
     </tbody>
   </table>
-  <%= paginate @reports %>
+  <% if @reports.present? %>
+    <%= paginate @reports %>
+  <% end %>
   <div class="form-group row">
     <div class="col">
       <%= link_to '新規作成', new_teacher_report_path, class: "btn btn-outline-success" %>

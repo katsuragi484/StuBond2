@@ -14,20 +14,24 @@
       </tr>
     </thead>
     <tbody>
+      <% if @students.present? %>
         <% @students.each do |student| %>
-        <tr>
-          <td><%= student.id %></td>
-          <td><%= link_to student.last_name + student.first_name, admin_student_path(student.id) %></td>
-          <td><!--有効、退会ステータス-->
-              <% if student.is_deleted == true %>
-                <strong class="text-success">有効</strong>
-              <% else %>
-                退会
-              <% end %>
-          </td>
-        </tr>
+          <tr>
+            <td><%= student.id %></td>
+            <td><%= link_to student.last_name + student.first_name, admin_student_path(student.id) %></td>
+            <td><!--有効、退会ステータス-->
+                <% if student.is_deleted == true %>
+                  <strong class="text-success">有効</strong>
+                <% else %>
+                  退会
+                <% end %>
+            </td>
+          </tr>
         <% end %>
+      <% end %>
     </tbody>
   </table>
-  <%= paginate @students %>
+  <% if @students.present? %>
+    <%= paginate @students %>
+  <% end %>
 </div>

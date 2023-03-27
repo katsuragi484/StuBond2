@@ -21,13 +21,17 @@
       </tr>
     </thead>
     <tbody>
-      <% @subjects.each do |subject| %>
-        <tr>
-          <td><%= subject.subject_name %></td>
-          <td><%= link_to '編集する', edit_admin_subject_path(subject.id), class: "btn btn-outline-success" %></td>
-        </tr>
+      <% if @subjects.present? %>
+        <% @subjects.each do |subject| %>
+          <tr>
+            <td><%= subject.subject_name %></td>
+            <td><%= link_to '編集する', edit_admin_subject_path(subject.id), class: "btn btn-outline-success" %></td>
+          </tr>
+        <% end %>
       <% end %>
     </tbody>
   </table>
-  <%= paginate @subjects %>
+  <% if @subjects.present? %>
+    <%= paginate @subjects %>
+  <% end %>
 </div>

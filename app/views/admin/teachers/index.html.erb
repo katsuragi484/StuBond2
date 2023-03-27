@@ -14,6 +14,7 @@
       </tr>
     </thead>
     <tbody>
+      <% if @teachers.present? %>
         <% @teachers.each do |teacher| %>
         <tr>
           <td><%= teacher.id %></td>
@@ -27,7 +28,10 @@
           </td>
         </tr>
         <% end %>
+      <% end %>
     </tbody>
   </table>
-  <%= paginate @teachers %>
+  <% if @teachers.present? %>
+    <%= paginate @teachers %>
+  <% end %>
 </div>
