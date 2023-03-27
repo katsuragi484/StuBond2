@@ -27,7 +27,7 @@
             <tr>
               <td><%= homework.report.subject.subject_name %></td>
               <td><%= homework.deadline %></td>
-              <td><%=link_to homework.task, edit_teacher_report_path(homework.report_id) %></td>
+              <td><%=link_to homework.task, parent_report_path(homework.report_id) %></td>
             </tr>
           <% end %>
         </tbody>
