@@ -10,6 +10,8 @@ class Student::ReportsController < ApplicationController
       else
         @reports = Report.page(params[:page])
       end
+    else
+        @reports = Report.page(params[:page])
     end
   end
 
