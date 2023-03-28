@@ -30,7 +30,7 @@
                 <tr>
                   <td><%= homework.report.subject.subject_name %></td>
                   <td><%= homework.deadline %></td>
-                  <td><%= homework.task, admin_report_path(homework.report_id) %></td>
+                  <td><%=link_to homework.task, admin_report_path(homework.report_id) %></td>
                 </tr>
               <% end %>
             <% end %>
