@@ -57,7 +57,7 @@ class Teacher::ReportsController < ApplicationController
   def update
     @report = Report.find(params[:id])
     if @report.update(report_params)
-      redirect_to teacher_reports_path
+      redirect_to teacher_report_path(@report.id)
     else
       @students = Student.all
       @subjects = Subject.all

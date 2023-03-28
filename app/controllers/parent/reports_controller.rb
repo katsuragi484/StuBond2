@@ -36,7 +36,7 @@ class Parent::ReportsController < ApplicationController
   def update
     @report = Report.find(params[:id])
     if @report.update(report_params)
-      redirect_to parent_reports_path
+      redirect_to parent_report_path(@report.id)
     else
       render 'edit'
     end
