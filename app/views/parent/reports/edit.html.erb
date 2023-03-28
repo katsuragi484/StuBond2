@@ -6,7 +6,8 @@
   </div>
     <div class="form-group row">
       <div class="col-8">
-        <table class="table mt-4" style="width: 95%">
+        <%= form_with model: @report, url: parent_report_path(@report.id) do |f| %>
+          <table class="table mt-4" style="width: 95%">
             <tr>
               <th class="thead-lignt bg-light" style="width: 25%">題名</th>
               <td><%= @report.title %></td>
@@ -15,7 +16,6 @@
               <th class="thead-lignt bg-light">報告書詳細</th>
               <td><%= @report.body %></td>
             </tr>
-            <%= form_with model: @report, url: parent_report_path(@report.id) do |f| %>
               <tr>
                 <th class="thead-lignt bg-light">
                   保護者より
@@ -31,9 +31,8 @@
                   </div>
                 </td>
               </tr>
-            <% end %>
-
-          </table>
+            </table>
+          <% end %>
         </div>
 
       <div class="col-4">
