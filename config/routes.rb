@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     resources :reports, only: [:index, :show, :edit, :update] do
       patch 'toggle' => 'reports#toggle'
     end
+    post "search" => "searches#search"
   end
 
   # 生徒用
@@ -46,6 +47,7 @@ Rails.application.routes.draw do
       patch "done" => "homeworks#done"
     end
     resources :reports, only: [:index, :show]
+    post "search" => "searches#search"
   end
 
   # 講師用

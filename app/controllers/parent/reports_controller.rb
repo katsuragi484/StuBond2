@@ -5,17 +5,22 @@ class Parent::ReportsController < ApplicationController
     students = Student.where(parent_id: current_parent.id)
 
     if @search = params[:search]
-      if @search == "教科" && @subject = Subject.find_by(subject_name: params[:word])
+      if @search == "教科" && @subject = Subject.find_by(subject_name: session[:word])
         @reports = Report.where(student_id: students.ids,subject_id: @subject.id).page(params[:page])
       elsif @search == "報告書内容"
-        @reports =Report.where(student_id: students.ids).search(params[:word]).page(params[:page])
+        @reports =Report.where(student_id: students.ids).search(session[:word]).page(params[:page])
       else
         @reports = Report.where(student_id: students.ids).page(params[:page])
       end
     else
       @reports = Report.where(student_id: students.ids).page(params[:page])
     end
-
+    if session[:search]
+      session[:search].clear
+    end
+    if session[:word]
+      session[:word].clear
+    end
   end
 
   def show

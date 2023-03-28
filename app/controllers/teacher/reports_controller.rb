@@ -36,7 +36,7 @@ class Teacher::ReportsController < ApplicationController
     if session[:search]
       session[:search].clear
     end
-    if session[:search]
+    if session[:word]
       session[:word].clear
     end
   end

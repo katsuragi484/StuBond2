@@ -1,5 +1,5 @@
   <div class="search_form">
-    <%= form_with url: student_reports_path, local: true, method: :post do |f| %>
+    <%= form_with url: student_search_path, local: true, method: :post do |f| %>
       <%= f.text_field :word %>
       <%= f.select :search, options_for_select([['報告書内容'], ['教科']]) %>
       <%= f.submit "検索", class: "btn btn-outline-primary" %>
