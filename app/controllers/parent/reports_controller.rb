@@ -4,7 +4,7 @@ class Parent::ReportsController < ApplicationController
   def index
     students = Student.where(parent_id: current_parent.id)
 
-    if @search = params[:search]
+    if @search = session[:search]
       if @search == "教科" && @subject = Subject.find_by(subject_name: session[:word])
         @reports = Report.where(student_id: students.ids,subject_id: @subject.id).page(params[:page])
       elsif @search == "報告書内容"
