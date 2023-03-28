@@ -7,6 +7,9 @@ class Teacher < ApplicationRecord
   has_many :reports, dependent: :destroy
   has_one_attached :image
 
+  validates :code, uniqueness: true
+
+
   def get_image(width, height)
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')

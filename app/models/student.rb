@@ -8,6 +8,9 @@ class Student < ApplicationRecord
   belongs_to :parent, optional: true
   has_many :reports, dependent: :destroy
   has_one_attached :image
+  
+  validates :code, uniqueness: true
+
 
   def get_image(width, height)
     unless image.attached?

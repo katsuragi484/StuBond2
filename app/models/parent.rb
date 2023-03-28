@@ -7,4 +7,7 @@ class Parent < ApplicationRecord
   has_many :chats, dependent: :destroy
   has_many :chatrooms, dependent: :destroy
 
+  validates :code, uniqueness: true
+
+
 end
