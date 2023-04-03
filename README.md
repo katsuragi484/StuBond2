@@ -19,20 +19,18 @@
 
 ### ターゲットユーザ
 - 塾
-- 音楽教室
-- スポーツ教室
 
 ### 主な利用シーン
 - 講師から生徒、保護者に対して報告するとき
-- 生徒情報を管理するとき
-- 生徒、保護者で連絡を取るとき
+- 生徒、講師情報を管理するとき
+- 生徒と保護者、塾間で連絡を取るとき
 
 ## 設計書
 - [画面遷移図](https://app.diagrams.net/#G1DCmP_cWGB9znYhcJF-uxomAriUAZmufK)
 - [ワイヤーフレーム](https://app.diagrams.net/#G1fi-_cp-2OW_oz866o7-G5CFRokYpQcLF)
 - [ER図](https://app.diagrams.net/#G1UmkGpX9zjYPoBgYKQbHU_bpGhXu9EpZ0)
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/1X3GpDv4ZZEPWZbAMMQzGgbY04azczooHEUGGC-bBuSw/edit#gid=1373217982)
-- [詳細設計_未完成]()
+- [詳細設計](https://docs.google.com/spreadsheets/d/1UEQfS9M0lwdhLm8UO8CvB0Lh-E3U4Dxa7ZLve9zJ2jw/edit#gid=549108681)
 
 ## 開発環境
 - OS：Linux(CentOS)
@@ -42,5 +40,5 @@
 - IDE：Cloud9
 
 ## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-使用検討中です
+- [DesignEvo](https://www.designevo.com/)
+- [illustAC](https://www.ac-illust.com/)
